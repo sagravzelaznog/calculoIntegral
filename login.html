@@ -4,267 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Cálculo Integral</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 450px;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            background: white;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            color: #666;
-            transition: all 0.3s;
-        }
-
-        .tab.active {
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .form-container {
-            padding: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .message {
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            display: none;
-        }
-
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .message.show {
-            display: block;
-        }
-
-        .user-info {
-            display: none;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .user-info.show {
-            display: block;
-        }
-
-        .user-info h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .user-info p {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .progress-bar {
-            background: #e0e0e0;
-            border-radius: 10px;
-            height: 8px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.3s;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .logout-btn {
-            background: #dc3545;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles-main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📐 Cálculo Integral</h1>
-            <p>Plataforma de Aprendizaje Matemático</p>
-        </div>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1 class="card-title">
+                    <i class="fas fa-calculator"></i> Cálculo Integral
+                </h1>
+                <p class="card-subtitle">Plataforma de Aprendizaje Matemático</p>
+            </div>
 
-        <!-- Tabs -->
-        <div class="tabs" id="tabs">
-            <button class="tab active" onclick="cambiarTab('login')">Iniciar Sesión</button>
-            <button class="tab" onclick="cambiarTab('registro')">Registrarse</button>
-        </div>
+            <!-- Tabs -->
+            <div class="login-tabs">
+                <button class="tab active" onclick="cambiarTab('login')">Iniciar Sesión</button>
+                <button class="tab" onclick="cambiarTab('registro')">Registrarse</button>
+            </div>
 
-        <!-- Formularios -->
-        <div class="form-container">
-            <!-- Mensaje de respuesta -->
-            <div id="mensaje" class="message"></div>
+            <!-- Formularios -->
+            <div class="login-form-container">
+                <!-- Mensaje de respuesta -->
+                <div id="mensaje" class="login-message"></div>
 
-            <!-- Formulario de Login -->
-            <form id="loginForm" class="form">
-                <div class="form-group">
-                    <label for="loginEmail">Correo Electrónico</label>
-                    <input type="email" id="loginEmail" placeholder="tu@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Contraseña</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn">Iniciar Sesión</button>
-            </form>
+                <!-- Formulario de Login -->
+                <form id="loginForm" class="form">
+                    <div class="form-group">
+                        <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword" class="form-label">Contraseña</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                </form>
 
-            <!-- Formulario de Registro -->
-            <form id="registroForm" class="form hidden">
-                <div class="form-group">
-                    <label for="registroNombre">Nombre Completo</label>
-                    <input type="text" id="registroNombre" placeholder="Juan Pérez" required>
-                </div>
-                <div class="form-group">
-                    <label for="registroEmail">Correo Electrónico</label>
-                    <input type="email" id="registroEmail" placeholder="tu@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="registroPassword">Contraseña</label>
-                    <input type="password" id="registroPassword" placeholder="Mínimo 6 caracteres" required>
-                </div>
-                <button type="submit" class="btn">Crear Cuenta</button>
-            </form>
+                <!-- Formulario de Registro -->
+                <form id="registroForm" class="form hidden">
+                    <div class="form-group">
+                        <label for="registroNombre" class="form-label">Nombre Completo</label>
+                        <input type="text" id="registroNombre" class="form-input" placeholder="Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registroEmail" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="registroEmail" class="form-input" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registroPassword" class="form-label">Contraseña</label>
+                        <input type="password" id="registroPassword" class="form-input" placeholder="Mínimo 6 caracteres" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Crear Cuenta</button>
+                </form>
 
-            <!-- Panel de Usuario Autenticado -->
-            <div id="userPanel" class="user-info">
-                <h3>👤 Bienvenido(a)</h3>
-                <p><strong>Email:</strong> <span id="userEmail"></span></p>
-                <p><strong>Nombre:</strong> <span id="userName"></span></p>
-                
-                <h4 style="margin-top: 20px; margin-bottom: 10px;">📊 Progreso del Curso</h4>
-                
-                <p>Módulo 1: Antiderivadas <span id="progress1">0%</span></p>
-                <div class="progress-bar"><div class="progress-fill" id="bar1" style="width: 0%"></div></div>
-                
-                <p style="margin-top: 10px;">Módulo 2: Integral Definida <span id="progress2">0%</span></p>
-                <div class="progress-bar"><div class="progress-fill" id="bar2" style="width: 0%"></div></div>
-                
-                <p style="margin-top: 10px;">Módulo 3: Técnicas de Integración <span id="progress3">0%</span></p>
-                <div class="progress-bar"><div class="progress-fill" id="bar3" style="width: 0%"></div></div>
-                
-                <p style="margin-top: 10px;">Módulo 4: Aplicaciones <span id="progress4">0%</span></p>
-                <div class="progress-bar"><div class="progress-fill" id="bar4" style="width: 0%"></div></div>
-                
-                <p style="margin-top: 10px;">Módulo 5: Ecuaciones Diferenciales <span id="progress5">0%</span></p>
-                <div class="progress-bar"><div class="progress-fill" id="bar5" style="width: 0%"></div></div>
-                
-                <button class="btn" onclick="window.location.href='index.html'" style="background: #28a745; margin-bottom: 10px;">Ir al Portal Principal</button>
-                <button class="btn logout-btn" onclick="handleLogout()">Cerrar Sesión</button>
+                <!-- Panel de Usuario Autenticado -->
+                <div id="userPanel" class="user-panel">
+                    <h3 class="card-title">
+                        <i class="fas fa-user"></i> Bienvenido(a)
+                    </h3>
+                    <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                    <p><strong>Nombre:</strong> <span id="userName"></span></p>
+
+                    <h4 class="progress-title">
+                        <i class="fas fa-chart-line"></i> Progreso del Curso
+                    </h4>
+
+                    <div class="user-progress-item">
+                        <p>Módulo 1: Antiderivadas <span id="progress1">0%</span></p>
+                        <div class="user-progress-bar">
+                            <div class="user-progress-fill" id="bar1"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-progress-item">
+                        <p>Módulo 2: Integral Definida <span id="progress2">0%</span></p>
+                        <div class="user-progress-bar">
+                            <div class="user-progress-fill" id="bar2"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-progress-item">
+                        <p>Módulo 3: Técnicas de Integración <span id="progress3">0%</span></p>
+                        <div class="user-progress-bar">
+                            <div class="user-progress-fill" id="bar3"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-progress-item">
+                        <p>Módulo 4: Aplicaciones <span id="progress4">0%</span></p>
+                        <div class="user-progress-bar">
+                            <div class="user-progress-fill" id="bar4"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-progress-item">
+                        <p>Módulo 5: Ecuaciones Diferenciales <span id="progress5">0%</span></p>
+                        <div class="user-progress-bar">
+                            <div class="user-progress-fill" id="bar5"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-column gap-2">
+                        <a href="index.html" class="btn btn-success btn-lg">
+                            <i class="fas fa-home"></i> Ir al Portal Principal
+                        </a>
+                        <button class="btn btn-error btn-lg" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -295,25 +144,34 @@
         function mostrarPanelUsuario(usuario, datos) {
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('registroForm').classList.add('hidden');
-            document.getElementById('tabs').classList.add('hidden');
             document.getElementById('userPanel').classList.add('show');
 
             document.getElementById('userEmail').textContent = usuario.email;
             document.getElementById('userName').textContent = datos?.displayName || 'Usuario';
 
-            // Mostrar progreso
+            // Mostrar progreso con animación
             if (datos && datos.progress) {
-                for (let i = 1; i <= 5; i++) {
-                    const progreso = datos.progress[`modulo${i}`] || 0;
-                    document.getElementById(`progress${i}`).textContent = `${progreso}%`;
-                    document.getElementById(`bar${i}`).style.width = `${progreso}%`;
-                }
+                setTimeout(() => {
+                    for (let i = 1; i <= 5; i++) {
+                        const progreso = datos.progress[`modulo${i}`] || 0;
+                        const progressText = document.getElementById(`progress${i}`);
+                        const progressBar = document.getElementById(`bar${i}`);
+
+                        if (progressText) {
+                            progressText.textContent = `${progreso}%`;
+                        }
+
+                        if (progressBar) {
+                            progressBar.style.width = `${progreso}%`;
+                            progressBar.style.transition = 'width 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+                        }
+                    }
+                }, 300);
             }
         }
 
         function ocultarPanelUsuario() {
             document.getElementById('loginForm').classList.remove('hidden');
-            document.getElementById('tabs').classList.remove('hidden');
             document.getElementById('userPanel').classList.remove('show');
         }
 

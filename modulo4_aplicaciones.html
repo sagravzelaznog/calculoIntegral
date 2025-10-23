@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 4: Aplicaciones de la Integral - Cálculo Integral</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -21,384 +21,51 @@
             }
         };
     </script>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --warning-color: #f39c12;
-            --light-bg: #ecf0f1;
-            --dark-text: #2c3e50;
-            --light-text: #7f8c8d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .progress-bar {
-            background: rgba(255,255,255,0.2);
-            height: 6px;
-            border-radius: 3px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: var(--success-color);
-            height: 100%;
-            width: 80%;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-
-        .navigation {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .nav-tab {
-            background: var(--light-bg);
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: var(--dark-text);
-        }
-
-        .nav-tab:hover, .nav-tab.active {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            display: none;
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-header {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-header i {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-        }
-
-        .concept-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .concept-box h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .formula-box {
-            background: #f8f9fa;
-            border-left: 5px solid var(--secondary-color);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 10px 10px 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        .example-box {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px solid var(--warning-color);
-        }
-
-        .example-box h4 {
-            color: var(--dark-text);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .step-by-step {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 5px solid var(--success-color);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .step-number {
-            background: var(--success-color);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-
-        .interactive-demo {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .demo-button {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-
-        .demo-button:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .exercise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .exercise-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--secondary-color);
-            transition: transform 0.3s ease;
-        }
-
-        .exercise-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .difficulty-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .difficulty-basic { background: var(--success-color); color: white; }
-        .difficulty-intermediate { background: var(--warning-color); color: white; }
-        .difficulty-advanced { background: var(--accent-color); color: white; }
-
-        .solution-toggle {
-            background: var(--light-bg);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-        }
-
-        .solution-toggle:hover {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        .solution-content {
-            display: none;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-            border-left: 5px solid var(--success-color);
-        }
-
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-        }
-
-        .floating-menu {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        .floating-menu button {
-            display: block;
-            background: none;
-            border: none;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .floating-menu button:hover {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-tabs {
-                flex-direction: column;
-            }
-            
-            .floating-menu {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="header">
+    <div class="module-header">
         <div class="container">
-            <h1><i class="fas fa-calculator"></i> Módulo 4: Aplicaciones de la Integral</h1>
-            <p>Explorando el poder del cálculo integral en problemas reales</p>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
+            <h1 class="card-title"><i class="fas fa-calculator"></i> Módulo 4: Aplicaciones de la Integral</h1>
+            <p class="card-subtitle">Explorando el poder del cálculo integral en problemas reales</p>
+            <div class="module-progress-bar">
+                <div class="module-progress-fill"></div>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="navigation">
-            <div class="nav-tabs">
-                <button class="nav-tab active" onclick="showSection('overview')">
+        <div class="module-nav">
+            <div class="module-nav-tabs">
+                <button class="module-nav-tab active" onclick="showSection('overview')">
                     <i class="fas fa-eye"></i> Visión General
                 </button>
-                <button class="nav-tab" onclick="showSection('areas')">
+                <button class="module-nav-tab" onclick="showSection('areas')">
                     <i class="fas fa-square"></i> Cálculo de Áreas
                 </button>
-                <button class="nav-tab" onclick="showSection('volumes')">
+                <button class="module-nav-tab" onclick="showSection('volumes')">
                     <i class="fas fa-cube"></i> Cálculo de Volúmenes
                 </button>
-                <button class="nav-tab" onclick="showSection('physics')">
+                <button class="module-nav-tab" onclick="showSection('physics')">
                     <i class="fas fa-atom"></i> Aplicaciones en Física
                 </button>
-                <button class="nav-tab" onclick="showSection('other')">
+                <button class="module-nav-tab" onclick="showSection('other')">
                     <i class="fas fa-chart-line"></i> Otras Aplicaciones
                 </button>
-                <button class="nav-tab" onclick="showSection('exercises')">
+                <button class="module-nav-tab" onclick="showSection('exercises')">
                     <i class="fas fa-dumbbell"></i> Ejercicios
                 </button>
             </div>
         </div>
 
         <!-- Sección de Visión General -->
-        <div id="overview" class="content-section active">
-            <div class="section-header">
+        <div id="overview" class="module-content-section active">
+            <div class="module-section-header">
                 <i class="fas fa-eye"></i>
                 <h2>Visión General del Módulo 4</h2>
             </div>
-            
-            <div class="concept-box">
-                <h3><i class="fas fa-lightbulb"></i> ¿Por qué son importantes las aplicaciones?</h3>
+
+            <div class="module-concept-box">
+                <h3 class="card-title"><i class="fas fa-lightbulb"></i> ¿Por qué son importantes las aplicaciones?</h3>
                 <p>El cálculo integral no es solo una herramienta matemática abstracta. Es la base para resolver problemas reales en:</p>
                 <ul>
                     <li><strong>Ingeniería:</strong> Diseño de estructuras, análisis de señales</li>
@@ -409,135 +76,135 @@
                 </ul>
             </div>
 
-            <h3><i class="fas fa-road"></i> Ruta de Aprendizaje</h3>
-            <div class="exercise-grid">
-                <div class="exercise-card">
-                    <h4><i class="fas fa-square"></i> 4.1 Cálculo de Áreas</h4>
+            <h3 class="card-title"><i class="fas fa-road"></i> Ruta de Aprendizaje</h3>
+            <div class="module-exercise-grid">
+                <div class="module-exercise-card">
+                    <h4 class="card-title"><i class="fas fa-square"></i> 4.1 Cálculo de Áreas</h4>
                     <p>Aprenderemos a calcular áreas bajo curvas y entre curvas, fundamentales para muchos problemas prácticos.</p>
-                    <span class="difficulty-badge difficulty-basic">Básico</span>
+                    <span class="module-difficulty-badge module-difficulty-basic">Básico</span>
                 </div>
-                <div class="exercise-card">
-                    <h4><i class="fas fa-cube"></i> 4.2 Cálculo de Volúmenes</h4>
+                <div class="module-exercise-card">
+                    <h4 class="card-title"><i class="fas fa-cube"></i> 4.2 Cálculo de Volúmenes</h4>
                     <p>Exploraremos los métodos de discos, arandelas y cascarones para calcular volúmenes de sólidos de revolución.</p>
-                    <span class="difficulty-badge difficulty-intermediate">Intermedio</span>
+                    <span class="module-difficulty-badge module-difficulty-intermediate">Intermedio</span>
                 </div>
-                <div class="exercise-card">
-                    <h4><i class="fas fa-atom"></i> 4.3 Aplicaciones en Física</h4>
+                <div class="module-exercise-card">
+                    <h4 class="card-title"><i class="fas fa-atom"></i> 4.3 Aplicaciones en Física</h4>
                     <p>Veremos cómo la integral se aplica al trabajo mecánico, centros de masa y fuerzas hidrostáticas.</p>
-                    <span class="difficulty-badge difficulty-intermediate">Intermedio</span>
+                    <span class="module-difficulty-badge module-difficulty-intermediate">Intermedio</span>
                 </div>
-                <div class="exercise-card">
-                    <h4><i class="fas fa-chart-line"></i> 4.4 Otras Aplicaciones</h4>
+                <div class="module-exercise-card">
+                    <h4 class="card-title"><i class="fas fa-chart-line"></i> 4.4 Otras Aplicaciones</h4>
                     <p>Exploraremos longitud de arco, superficie de revolución y aplicaciones en economía.</p>
-                    <span class="difficulty-badge difficulty-advanced">Avanzado</span>
+                    <span class="module-difficulty-badge module-difficulty-advanced">Avanzado</span>
                 </div>
             </div>
 
-            <div class="interactive-demo">
-                <h3><i class="fas fa-play-circle"></i> Demostración Interactiva</h3>
+            <div class="module-interactive-demo">
+                <h3 class="card-title"><i class="fas fa-play-circle"></i> Demostración Interactiva</h3>
                 <p>Haz clic para ver cómo las integrales transforman problemas complejos en soluciones elegantes:</p>
-                <button class="demo-button" onclick="showDemo()">
+                <button class="module-demo-button" onclick="showDemo()">
                     <i class="fas fa-magic"></i> Ver Demostración
                 </button>
             </div>
         </div>
 
         <!-- Sección 4.1: Cálculo de Áreas -->
-        <div id="areas" class="content-section">
-            <div class="section-header">
+        <div id="areas" class="module-content-section">
+            <div class="module-section-header">
                 <i class="fas fa-square"></i>
                 <h2>4.1 Cálculo de Áreas</h2>
             </div>
 
-            <div class="concept-box">
-                <h3><i class="fas fa-lightbulb"></i> Concepto Fundamental</h3>
+            <div class="module-concept-box">
+                <h3 class="card-title"><i class="fas fa-lightbulb"></i> Concepto Fundamental</h3>
                 <p>El área bajo una curva $y = f(x)$ desde $x = a$ hasta $x = b$ está dada por:</p>
-                <div class="formula-box">
+                <div class="module-formula-box">
                     $$A = \int_a^b f(x) \, dx$$
                 </div>
                 <p>Esta es la aplicación más directa del Teorema Fundamental del Cálculo.</p>
             </div>
 
-            <h3><i class="fas fa-chalkboard-teacher"></i> Área Bajo una Curva</h3>
-            <div class="example-box">
-                <h4><i class="fas fa-example"></i> Ejemplo 1: Área bajo $y = x^2$ desde $x = 0$ hasta $x = 2$</h4>
-                
-                <div class="step-by-step">
-                    <span class="step-number">1</span>
+            <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Área Bajo una Curva</h3>
+            <div class="module-example-box">
+                <h4 class="card-title"><i class="fas fa-calculator"></i> Ejemplo 1: Área bajo $y = x^2$ desde $x = 0$ hasta $x = 2$</h4>
+
+                <div class="module-step-by-step">
+                    <span class="module-step-number">1</span>
                     <strong>Identificar la función y los límites:</strong>
                     <p>Función: $f(x) = x^2$<br>
                     Límites: $a = 0$, $b = 2$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">2</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">2</span>
                     <strong>Plantear la integral:</strong>
                     <p>$$A = \int_0^2 x^2 \, dx$$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">3</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">3</span>
                     <strong>Resolver la integral:</strong>
                     <p>$$\int x^2 \, dx = \frac{x^3}{3} + C$$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">4</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">4</span>
                     <strong>Aplicar el Teorema Fundamental del Cálculo:</strong>
                     <p>$$A = \left[\frac{x^3}{3}\right]_0^2 = \frac{2^3}{3} - \frac{0^3}{3} = \frac{8}{3}$$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">5</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">5</span>
                     <strong>Interpretar el resultado:</strong>
                     <p>El área bajo la curva $y = x^2$ desde $x = 0$ hasta $x = 2$ es $\frac{8}{3}$ unidades cuadradas.</p>
                 </div>
             </div>
 
-            <h3><i class="fas fa-chalkboard-teacher"></i> Área Entre Dos Curvas</h3>
-            <div class="concept-box">
-                <h3><i class="fas fa-lightbulb"></i> Fórmula para Área Entre Curvas</h3>
+            <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Área Entre Dos Curvas</h3>
+            <div class="module-concept-box">
+                <h3 class="card-title"><i class="fas fa-lightbulb"></i> Fórmula para Área Entre Curvas</h3>
                 <p>Si $f(x) \geq g(x)$ en el intervalo $[a, b]$, entonces el área entre las curvas es:</p>
-                <div class="formula-box">
+                <div class="module-formula-box">
                     $$A = \int_a^b [f(x) - g(x)] \, dx$$
                 </div>
             </div>
 
-            <div class="example-box">
-                <h4><i class="fas fa-example"></i> Ejemplo 2: Área entre $y = x^2$ y $y = x$</h4>
-                
-                <div class="step-by-step">
-                    <span class="step-number">1</span>
+            <div class="module-example-box">
+                <h4 class="card-title"><i class="fas fa-calculator"></i> Ejemplo 2: Área entre $y = x^2$ y $y = x$</h4>
+
+                <div class="module-step-by-step">
+                    <span class="module-step-number">1</span>
                     <strong>Encontrar los puntos de intersección:</strong>
                     <p>$x^2 = x \Rightarrow x^2 - x = 0 \Rightarrow x(x-1) = 0$<br>
                     Por lo tanto: $x = 0$ y $x = 1$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">2</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">2</span>
                     <strong>Determinar cuál función está arriba:</strong>
                     <p>En el intervalo $[0, 1]$: $x \geq x^2$<br>
                     Por lo tanto: $f(x) = x$ y $g(x) = x^2$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">3</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">3</span>
                     <strong>Plantear la integral:</strong>
                     <p>$$A = \int_0^1 [x - x^2] \, dx$$</p>
                 </div>
 
-                <div class="step-by-step">
-                    <span class="step-number">4</span>
+                <div class="module-step-by-step">
+                    <span class="module-step-number">4</span>
                     <strong>Resolver la integral:</strong>
                     <p>$$A = \int_0^1 x \, dx - \int_0^1 x^2 \, dx = \left[\frac{x^2}{2}\right]_0^1 - \left[\frac{x^3}{3}\right]_0^1$$</p>
                     <p>$$A = \frac{1}{2} - \frac{1}{3} = \frac{3-2}{6} = \frac{1}{6}$$</p>
                 </div>
             </div>
 
-            <div class="interactive-demo">
-                <h3><i class="fas fa-play-circle"></i> Simulador de Áreas</h3>
+            <div class="module-interactive-demo">
+                <h3 class="card-title"><i class="fas fa-play-circle"></i> Simulador de Áreas</h3>
                 <p>Explora cómo cambia el área al modificar las funciones y límites:</p>
-                <button class="demo-button" onclick="openAreaSimulator()">
+                <button class="module-demo-button" onclick="openAreaSimulator()">
                     <i class="fas fa-chart-area"></i> Abrir Simulador
                 </button>
             </div>
@@ -1071,24 +738,86 @@
             sections.forEach((section, index) => {
                 section.style.animationDelay = `${index * 0.1}s`;
             });
-        });
-
         // Progreso de aprendizaje
         function updateProgress() {
-            const progressFill = document.querySelector('.progress-fill');
+            const sections = ['overview', 'areas', 'volumes', 'physics', 'other', 'exercises'];
             const currentSection = document.querySelector('.content-section.active');
-            const sections = document.querySelectorAll('.content-section');
-            const currentIndex = Array.from(sections).indexOf(currentSection);
+            const currentIndex = sections.indexOf(currentSection);
             const progress = ((currentIndex + 1) / sections.length) * 100;
-            progressFill.style.width = `${progress}%`;
+
+            document.querySelector('.module-progress-fill').style.width = progress + '%';
         }
 
-        // Actualizar progreso cuando cambie la sección
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('nav-tab')) {
-                setTimeout(updateProgress, 100);
+        function showDemo() {
+            alert('\u{1F4F7} Demostración del Módulo 4\n\n' +
+                  'En este módulo has aprendido a:\n\n' +
+                  '• \u{2705} Calcular áreas bajo curvas y entre curvas\n' +
+                  '• \u{2705} Determinar volúmenes usando métodos de discos y arandelas\n' +
+                  '• \u{2705} Aplicar integrales en problemas de física\n' +
+                  '• \u{2705} Explorar aplicaciones en economía y otras disciplinas\n\n' +
+                  '¡Las integrales son herramientas poderosas para resolver problemas reales!');
+        }
+
+        function openAreaSimulator() {
+            alert('\u{1F4F7} Simulador de Áreas\n\n' +
+                  'En el simulador completo podrás:\n\n' +
+                  '• Modificar función f(x) y g(x)\n' +
+                  '• Ajustar los límites de integración\n' +
+                  '• Ver la visualización en tiempo real\n' +
+                  '• Calcular áreas automáticamente\n\n' +
+                  '¡Explora cómo cambian las áreas!');
+        }
+
+        function openVolumeViewer() {
+            alert('\u{1F4F7} Visualizador 3D de Volúmenes\n\n' +
+                  'El visualizador completo permite:\n\n' +
+                  '• Ver sólidos de revolución en 3D\n' +
+                  '• Comparar métodos de discos vs arandelas\n' +
+                  '• Animar la rotación de las regiones\n' +
+                  '• Calcular volúmenes en tiempo real\n\n' +
+                  '¡Visualiza el poder de las integrales!');
+        }
+
+        function openPhysicsSimulator() {
+            alert('\u{1F4F7} Simulador de Física\n\n' +
+                  'En el simulador completo explorarás:\n\n' +
+                  '• Trabajo mecánico en resortes\n' +
+                  '• Cálculo de centros de masa\n' +
+                  '• Fuerzas hidrostáticas en tanques\n' +
+                  '• Aplicaciones en movimiento\n\n' +
+                  '¡La física cobra vida con las integrales!');
+        }
+
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación de entrada para las tarjetas
+            const cards = document.querySelectorAll('.module-exercise-card, .module-step-by-step');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Animación para botones
+            const buttons = document.querySelectorAll('.module-demo-button');
+            buttons.forEach((btn, index) => {
+                btn.style.opacity = '0';
+                btn.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    btn.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'translateY(0)';
+                }, 800 + (index * 150));
+            });
+
+            // Inicializar MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise();
             }
         });
-    </script>
-</body>
-</html>
