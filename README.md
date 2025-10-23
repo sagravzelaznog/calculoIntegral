@@ -1,347 +1,254 @@
-# 📐 Cálculo Integral - Plataforma Educativa
+# Módulo 1: Antiderivadas e Integrales Indefinidas - Cálculo Integral
 
-Plataforma web interactiva para el aprendizaje de Cálculo Integral con sistema de autenticación Firebase y seguimiento personalizado de progreso.
+## Descripción
 
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+Este es el desarrollo completo del **Módulo 1** del curso de Cálculo Integral, diseñado de manera didáctica y con ejemplos paso a paso para facilitar la asimilación del conocimiento. El módulo incluye contenido teórico detallado, ejercicios interactivos, evaluaciones y un sistema de seguimiento de progreso.
 
----
+## Características Principales
 
-## 🎯 **Características**
+### 📚 Contenido Educativo
+- **Concepto de Antiderivada**: Definición, constante de integración, familia de funciones
+- **Integrales Inmediatas**: Regla de la potencia, integrales trigonométricas, propiedades de linealidad
+- **Técnicas Básicas**: Reescritura de funciones, expansión, división, identidades trigonométricas
 
-- ✅ **Sistema de autenticación** con Firebase Authentication
-- ✅ **5 módulos de aprendizaje** progresivos
-- ✅ **Seguimiento de progreso** personalizado en Firestore
-- ✅ **Ejercicios interactivos** con validación en tiempo real
-- ✅ **Interfaz moderna** y completamente responsiva
-- ✅ **Renderización matemática** con MathJax
-- ✅ **Panel de usuario** con estadísticas de avance
+### 🎯 Ejemplos Paso a Paso
+- Más de 20 ejemplos detallados con explicaciones completas
+- Verificación por derivación en cada solución
+- Progresión de dificultad desde básico hasta avanzado
 
----
+### 🎮 Interactividad
+- Quiz interactivo con 10 preguntas y temporizador
+- Generador de ejercicios adicionales
+- Sistema de retroalimentación inmediata
+- Toggles para mostrar/ocultar soluciones
 
-## 📚 **Módulos del Curso**
+### 📊 Seguimiento de Progreso
+- Barra de progreso del módulo
+- Contador de ejercicios completados
+- Tiempo invertido en el estudio
+- Precisión en respuestas
 
-### 🔷 Módulo 1: Antiderivadas e Integrales Indefinidas
-- Concepto de antiderivada
-- Notación de integral indefinida
-- Propiedades de las integrales indefinidas
-- Fórmulas básicas de integración
+## Archivos Incluidos
 
-### 🔷 Módulo 2: Integral Definida
-- Sumas de Riemann
-- Teorema Fundamental del Cálculo
-- Propiedades de la integral definida
-- Cálculo de áreas
+### Archivos Principales
+- `modulo1_antiderivadas.html` - Página principal del módulo
+- `ejercicios_modulo1.html` - Página de ejercicios adicionales
+- `modulo1-script.js` - JavaScript del módulo principal
+- `ejercicios-modulo1-script.js` - JavaScript de ejercicios
+- `styles.css` - Estilos CSS del curso
 
-### 🔷 Módulo 3: Técnicas de Integración
-- Integración por sustitución
-- Integración por partes
-- Fracciones parciales
-- Sustituciones trigonométricas
+### Archivos de Configuración
+- `firebase-config.js` - Configuración de Firebase
+- `auth-manager.js` - Gestión de autenticación y usuarios
+- `module-navigation.js` - Navegación entre módulos
 
-### 🔷 Módulo 4: Aplicaciones de la Integral
-- Cálculo de áreas entre curvas
-- Volúmenes de sólidos de revolución
-- Longitud de arco
-- Aplicaciones a la física
+## Estructura del Contenido
 
-### 🔷 Módulo 5: Ecuaciones Diferenciales
-- Ecuaciones diferenciales ordinarias
-- Variables separables
-- Ecuaciones lineales de primer orden
-- Aplicaciones
+### 1.1 Concepto de Antiderivada (2 horas)
+- Definición de antiderivada
+- Relación entre derivada e integral
+- La constante de integración
+- Familia de funciones antiderivadas
+- Notación matemática de la integral indefinida
 
----
+### 1.2 Integrales Inmediatas (3 horas)
+- Tabla de integrales básicas
+- Regla de la potencia para integrales
+- Integrales trigonométricas básicas
+- Propiedades de linealidad
+- Ejemplos con funciones exponenciales y logarítmicas
 
-## 🚀 **Instalación**
+### 1.3 Técnicas Básicas de Integración (3 horas)
+- Reescritura de funciones
+- Expansión de binomios
+- División de polinomios
+- Uso de identidades trigonométricas
+- Verificación por derivación
 
-### Requisitos previos:
-- Navegador moderno (Chrome, Firefox, Edge, Safari)
-- Conexión a Internet (para Firebase)
-- Servidor web local (Python, Node.js, o extensión Live Server)
+## Funcionalidades Interactivas
 
-### Paso 1: Clonar el repositorio
+### Quiz del Módulo
+- 10 preguntas de opción múltiple
+- Temporizador de 20 minutos
+- Retroalimentación inmediata
+- Resumen de resultados con explicaciones
+- Opción de repetir el quiz
 
+### Generador de Ejercicios
+- Ejercicios aleatorios por dificultad y tema
+- Soluciones paso a paso
+- Filtros por dificultad (Básico, Intermedio, Avanzado)
+- Filtros por tema específico
+
+### Sistema de Progreso
+- Seguimiento automático del progreso
+- Persistencia en localStorage y Firebase
+- Estadísticas detalladas de rendimiento
+- Exportación de reportes de progreso
+
+## Tecnologías Utilizadas
+
+### Frontend
+- **HTML5** - Estructura semántica
+- **CSS3** - Diseño responsivo y animaciones
+- **JavaScript ES6+** - Interactividad y lógica
+- **MathJax** - Renderizado de fórmulas matemáticas
+- **Font Awesome** - Iconografía
+
+### Backend (Opcional)
+- **Firebase** - Autenticación y base de datos
+- **Firestore** - Almacenamiento de progreso
+- **Firebase Auth** - Gestión de usuarios
+
+## Instalación y Configuración
+
+### 1. Configuración Básica (Sin Firebase)
 ```bash
-git clone https://github.com/TU_USUARIO/calculo-integral.git
-cd calculo-integral
+# Clonar o descargar los archivos
+# Abrir modulo1_antiderivadas.html en un navegador web
+# El sistema funcionará en modo offline
 ```
 
-### Paso 2: Configurar Firebase
+### 2. Configuración con Firebase (Recomendado)
 
-1. **Crear proyecto en Firebase Console:**
-   - Ir a https://console.firebase.google.com/
-   - Crear nuevo proyecto: "CalculoIntegral"
+#### Paso 1: Crear Proyecto Firebase
+1. Ir a [Firebase Console](https://console.firebase.google.com/)
+2. Crear nuevo proyecto "CalculoIntegral"
+3. Activar Authentication → Email/Password
+4. Activar Firestore Database
 
-2. **Activar servicios:**
-   - Authentication → Email/Password
-   - Firestore Database
-
-3. **Copiar credenciales:**
-   - Configuración del proyecto → Aplicación web
-   - Copiar credenciales en `firebase.config.js`
-
-4. **Configurar reglas de Firestore:**
-   ```javascript
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       match /users/{userId} {
-         allow read, write: if request.auth != null && request.auth.uid == userId;
-       }
-     }
-   }
-   ```
-
-### Paso 3: Ejecutar servidor local
-
-**Opción 1: Python**
-```bash
-python -m http.server 8000
+#### Paso 2: Configurar Credenciales
+```javascript
+// En firebase-config.js, reemplazar con tus credenciales:
+const firebaseConfig = {
+    apiKey: "tu-api-key-aqui",
+    authDomain: "tu-proyecto.firebaseapp.com",
+    projectId: "tu-proyecto-id",
+    storageBucket: "tu-proyecto.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "tu-app-id"
+};
 ```
 
-**Opción 2: Node.js**
-```bash
-npx http-server
+#### Paso 3: Estructura de Base de Datos
+```javascript
+// Colección: users/{userId}
+{
+    email: "usuario@ejemplo.com",
+    name: "Nombre Usuario",
+    role: "student",
+    createdAt: timestamp,
+    courseAccess: {
+        calculoIntegral: true
+    },
+    progress: {
+        modulo1: 0-100,
+        modulo2: 0-100,
+        modulo3: 0-100,
+        modulo4: 0-100,
+        modulo5: 0-100
+    }
+}
 ```
 
-**Opción 3: VS Code**
-- Instalar extensión "Live Server"
-- Click derecho en `login.html` → "Open with Live Server"
+### 3. Personalización
 
-### Paso 4: Abrir en navegador
+#### Modificar Contenido
+- Editar `modulo1_antiderivadas.html` para cambiar el contenido
+- Modificar `modulo1-script.js` para ajustar la lógica
+- Actualizar `styles.css` para personalizar el diseño
 
-```
-http://localhost:8000/login.html
-```
-
----
-
-## 📁 **Estructura del Proyecto**
-
-```
-calculo-integral/
-│
-├── login.html                    # Página de autenticación
-├── firebase.config.js            # Configuración de Firebase
-├── auth-manager.js               # Sistema de autenticación
-│
-├── modulo1.html                  # Módulo 1: Antiderivadas
-├── modulo2.html                  # Módulo 2: Integral Definida
-├── modulo3.html                  # Módulo 3: Técnicas
-├── modulo4.html                  # Módulo 4: Aplicaciones
-├── modulo5.html                  # Módulo 5: Ecuaciones Dif.
-│
-├── planeacionCI.MD               # Planeación completa del curso
-├── PASOS_CREAR_FIREBASE.md       # Guía de configuración Firebase
-├── README_FIREBASE.md            # Documentación Firebase
-├── INSTRUCCIONES_GITHUB.md       # Guía para GitHub
-│
-├── .gitignore                    # Archivos ignorados por Git
-└── README.md                     # Este archivo
+#### Agregar Ejercicios
+```javascript
+// En modulo1-script.js, agregar al array de ejercicios:
+{
+    problem: 'Tu problema aquí',
+    solution: 'Tu solución aquí',
+    steps: ['Paso 1', 'Paso 2', 'Paso 3']
+}
 ```
 
----
+## Uso del Sistema
 
-## 🛠️ **Tecnologías Utilizadas**
+### Para Estudiantes
+1. **Acceso**: Abrir `modulo1_antiderivadas.html`
+2. **Navegación**: Usar los botones de navegación entre secciones
+3. **Ejercicios**: Completar ejercicios y ver soluciones
+4. **Quiz**: Tomar el quiz para evaluar comprensión
+5. **Progreso**: Monitorear avance en la barra de progreso
 
-| Tecnología | Uso |
-|------------|-----|
-| **HTML5** | Estructura de páginas |
-| **CSS3** | Estilos y diseño responsivo |
-| **JavaScript ES6+** | Lógica de la aplicación |
-| **Firebase Authentication** | Sistema de usuarios |
-| **Firebase Firestore** | Base de datos NoSQL |
-| **MathJax** | Renderización de fórmulas matemáticas |
-| **Git** | Control de versiones |
+### Para Profesores
+1. **Configuración**: Configurar Firebase para seguimiento de estudiantes
+2. **Monitoreo**: Revisar progreso de estudiantes en Firebase Console
+3. **Personalización**: Modificar contenido según necesidades del curso
+4. **Evaluación**: Usar datos de progreso para evaluaciones
 
----
+## Características Pedagógicas
 
-## 👤 **Uso de la Plataforma**
+### Diseño Didáctico
+- **Progresión lógica**: De conceptos simples a complejos
+- **Ejemplos múltiples**: Variedad de casos de aplicación
+- **Verificación**: Confirmación de respuestas por derivación
+- **Visualización**: Uso de MathJax para fórmulas claras
 
-### Registrarse:
-1. Abrir `login.html`
-2. Click en pestaña "Registrarse"
-3. Ingresar datos (nombre, email, contraseña)
-4. Click en "Crear Cuenta"
+### Evaluación Formativa
+- **Retroalimentación inmediata**: Corrección instantánea
+- **Múltiples intentos**: Permite repetición hasta dominar
+- **Progreso granular**: Seguimiento detallado del avance
+- **Adaptabilidad**: Diferentes niveles de dificultad
 
-### Iniciar Sesión:
-1. Ingresar email y contraseña
-2. Click en "Iniciar Sesión"
-3. Acceder al panel de usuario
+### Accesibilidad
+- **Diseño responsivo**: Funciona en dispositivos móviles
+- **Navegación clara**: Estructura intuitiva
+- **Texto legible**: Tipografía optimizada
+- **Contraste adecuado**: Colores accesibles
 
-### Navegar por los Módulos:
-1. Desde el panel de usuario
-2. Seleccionar módulo deseado
-3. Completar actividades
-4. El progreso se guarda automáticamente
+## Extensibilidad
 
----
+### Agregar Nuevos Módulos
+1. Crear archivo HTML siguiendo la estructura de `modulo1_antiderivadas.html`
+2. Actualizar `module-navigation.js` con información del nuevo módulo
+3. Configurar prerrequisitos y navegación
+4. Agregar ejercicios y evaluaciones específicas
 
-## 📖 **Documentación**
+### Integración con LMS
+- **Moodle**: Usar como actividad SCORM
+- **Canvas**: Integrar como página externa
+- **Blackboard**: Incorporar como contenido web
+- **Google Classroom**: Compartir como enlace
 
-- **[Guía de Firebase](./PASOS_CREAR_FIREBASE.md)** - Configuración paso a paso
-- **[Implementación Firebase](./README_FIREBASE.md)** - Detalles técnicos
-- **[Guía de GitHub](./INSTRUCCIONES_GITHUB.md)** - Publicar en GitHub
-- **[Planeación del Curso](./planeacionCI.MD)** - Contenido completo
+## Soporte y Mantenimiento
 
----
+### Actualizaciones
+- **Contenido**: Revisar y actualizar ejemplos periódicamente
+- **Tecnología**: Mantener dependencias actualizadas
+- **Seguridad**: Actualizar Firebase y dependencias de seguridad
 
-## 🔒 **Seguridad**
+### Resolución de Problemas
+- **MathJax**: Verificar que las fórmulas se rendericen correctamente
+- **Firebase**: Comprobar configuración de credenciales
+- **Navegadores**: Probar en diferentes navegadores
 
-### Reglas de Firestore:
-- Los usuarios solo pueden acceder a sus propios datos
-- Autenticación requerida para todas las operaciones
-- Validación de permisos en el servidor
+## Contribuciones
 
-### Mejores Prácticas:
-- Credenciales de Firebase en archivos separados
-- Variables de entorno para producción
-- HTTPS obligatorio en producción
-- Dominios autorizados configurados
+### Mejoras Sugeridas
+- Agregar más ejercicios de cada tema
+- Implementar calculadora de integrales
+- Crear visualizaciones interactivas con GeoGebra
+- Desarrollar app móvil complementaria
 
----
+### Reporte de Errores
+- Documentar problemas encontrados
+- Proporcionar pasos para reproducir
+- Incluir información del navegador y sistema
 
-## 🌐 **Deploy / Publicación**
+## Licencia
 
-### GitHub Pages:
-
-1. **Activar GitHub Pages:**
-   - Settings → Pages
-   - Source: `main` branch
-   - Guardar
-
-2. **Acceder a:**
-   ```
-   https://TU_USUARIO.github.io/calculo-integral/login.html
-   ```
-
-### Netlify (Alternativa):
-
-```bash
-# Instalar Netlify CLI
-npm install -g netlify-cli
-
-# Deploy
-netlify deploy --prod
-```
-
-### Firebase Hosting:
-
-```bash
-# Instalar Firebase CLI
-npm install -g firebase-tools
-
-# Login
-firebase login
-
-# Inicializar
-firebase init hosting
-
-# Deploy
-firebase deploy
-```
+Este material está diseñado para uso educativo exclusivo de la institución. Todos los derechos reservados.
 
 ---
 
-## 🐛 **Solución de Problemas**
-
-### Error: "Firebase not defined"
-**Solución:** Asegurarse de que el archivo se sirva desde un servidor web, no desde `file://`
-
-### Error: "Permission denied"
-**Solución:** Verificar reglas de seguridad en Firestore
-
-### No se guarda el progreso
-**Solución:** Verificar que Firestore esté habilitado y el usuario autenticado
-
-### Fórmulas matemáticas no se muestran
-**Solución:** Verificar que MathJax esté cargando correctamente
-
----
-
-## 📊 **Roadmap**
-
-### Versión Actual (v1.0)
-- ✅ Sistema de autenticación
-- ✅ Estructura de 5 módulos
-- ✅ Seguimiento de progreso básico
-
-### Próximas Versiones
-
-**v1.1**
-- [ ] Sistema de calificaciones
-- [ ] Certificado de finalización
-- [ ] Modo oscuro
-
-**v1.2**
-- [ ] Foros de discusión
-- [ ] Chat en vivo
-- [ ] Notificaciones push
-
-**v2.0**
-- [ ] App móvil
-- [ ] Modo offline
-- [ ] Gamificación (badges, rankings)
-
----
-
-## 🤝 **Contribuir**
-
-Las contribuciones son bienvenidas. Para cambios importantes:
-
-1. Fork el proyecto
-2. Crear una rama (`git checkout -b feature/NuevaCaracteristica`)
-3. Commit cambios (`git commit -m 'Agregar nueva característica'`)
-4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
-5. Abrir Pull Request
-
----
-
-## 👨‍🏫 **Autor**
-
-**José Manuel González Vargas**  
-Profesor de Matemáticas  
-Especialidad: Cálculo Diferencial e Integral
-
----
-
-## 📄 **Licencia**
-
-Este material es de uso exclusivo para fines educativos de la institución.  
-**© 2025 - Todos los derechos reservados**
-
----
-
-## 📞 **Contacto**
-
-Para preguntas, sugerencias o reportar errores:
-
-- **Email:** [tu-email@ejemplo.com]
-- **GitHub Issues:** [Crear issue](https://github.com/TU_USUARIO/calculo-integral/issues)
-
----
-
-## ⭐ **Agradecimientos**
-
-- Firebase por la infraestructura backend
-- MathJax por la renderización matemática
-- GitHub por el hosting
-- La comunidad de desarrolladores
-
----
-
-## 📈 **Estadísticas**
-
-![GitHub repo size](https://img.shields.io/github/repo-size/TU_USUARIO/calculo-integral)
-![GitHub last commit](https://img.shields.io/github/last-commit/TU_USUARIO/calculo-integral)
-![GitHub stars](https://img.shields.io/github/stars/TU_USUARIO/calculo-integral?style=social)
-
----
-
-**🚀 ¡Comienza a aprender Cálculo Integral hoy!**
-
-[🔗 Ver Demo](https://tu-usuario.github.io/calculo-integral/login.html) | [📖 Documentación](./PASOS_CREAR_FIREBASE.md) | [🐛 Reportar Bug](https://github.com/TU_USUARIO/calculo-integral/issues)
-
+**Desarrollado por**: JMGV-PTEL  
+**Versión**: 1.0  
+**Fecha**: Octubre 2025  
+**Próxima revisión**: Enero 2026

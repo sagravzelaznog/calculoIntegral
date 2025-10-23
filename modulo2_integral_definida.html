@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Sumas de Riemann y la Integral Definida | Cálculo Integral</title>
+    
+    <!-- MathJax para renderizado de fórmulas matemáticas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <!-- GeoGebra para visualizaciones interactivas -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modulo2-styles.css">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>📐 Cálculo Integral</h1>
+                    <span class="subtitle">Módulo 2: Sumas de Riemann y la Integral Definida</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">🏠 Inicio</a>
+                    <a href="modulo1_antiderivadas.html" class="nav-link">📚 Módulo 1</a>
+                    <a href="#" class="nav-link active">📊 Módulo 2</a>
+                    <a href="modulo3_tecnicas_integracion.html" class="nav-link">🔧 Módulo 3</a>
+                    <a href="modulo4_aplicaciones.html" class="nav-link">🎯 Módulo 4</a>
+                    <a href="modulo5_ecuaciones_diferenciales.html" class="nav-link">⚡ Módulo 5</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de progreso del módulo -->
+    <div class="progress-bar">
+        <div class="container">
+            <div class="progress-content">
+                <div class="progress-info">
+                    <span class="progress-text">Progreso del Módulo 2</span>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introducción al módulo -->
+            <section class="module-intro">
+                <div class="intro-card">
+                    <h2>🎯 Objetivo del Módulo</h2>
+                    <p>Comprender el concepto de integral definida como límite de sumas de Riemann y aplicar el Teorema Fundamental del Cálculo para evaluar integrales.</p>
+                    
+                    <div class="learning-outcomes">
+                        <h3>📋 Competencias que desarrollarás:</h3>
+                        <ul>
+                            <li>✅ Calcular sumas de Riemann para aproximar áreas</li>
+                            <li>✅ Comprender la definición formal de integral definida</li>
+                            <li>✅ Aplicar el Teorema Fundamental del Cálculo</li>
+                            <li>✅ Evaluar integrales definidas usando antiderivadas</li>
+                            <li>✅ Visualizar conceptos mediante gráficas interactivas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegación del módulo -->
+            <nav class="module-nav">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" data-section="sumas-riemann">
+                        📊 2.1 Sumas de Riemann
+                    </button>
+                    <button class="nav-tab" data-section="integral-definida">
+                        📐 2.2 Integral Definida
+                    </button>
+                    <button class="nav-tab" data-section="teorema-fundamental">
+                        🔑 2.3 Teorema Fundamental del Cálculo
+                    </button>
+                    <button class="nav-tab" data-section="ejercicios">
+                        💪 Ejercicios Prácticos
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Sección 2.1: Sumas de Riemann -->
+            <section id="sumas-riemann" class="content-section active">
+                <div class="section-header">
+                    <h2>📊 2.1 Sumas de Riemann y Aproximación de Áreas</h2>
+                    <p class="section-subtitle">El problema fundamental: ¿Cómo calcular el área bajo una curva?</p>
+                </div>
+
+                <!-- Problema motivacional -->
+                <div class="motivation-box">
+                    <h3>🤔 El Problema del Área</h3>
+                    <p>Imagina que necesitas calcular el área bajo la curva $y = x^2$ desde $x = 0$ hasta $x = 2$. ¿Cómo lo harías?</p>
+                    <div class="problem-visualization">
+                        <canvas id="areaProblemCanvas" width="400" height="200"></canvas>
+                    </div>
+                    <p><strong>Solución:</strong> Dividiremos el área en rectángulos pequeños y sumaremos sus áreas. ¡Esto es exactamente lo que hacen las sumas de Riemann!</p>
+                </div>
+
+                <!-- Conceptos fundamentales -->
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h4>🔍 Partición de un Intervalo</h4>
+                        <p>Dividimos el intervalo $[a, b]$ en $n$ subintervalos de igual longitud:</p>
+                        <div class="formula-box">
+                            $$\Delta x = \frac{b - a}{n}$$
+                        </div>
+                        <p>Los puntos de la partición son:</p>
+                        <div class="formula-box">
+                            $$x_0 = a, \quad x_1 = a + \Delta x, \quad x_2 = a + 2\Delta x, \quad \ldots, \quad x_n = b$$
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h4>📏 Suma de Riemann</h4>
+                        <p>Para una función $f(x)$ en el intervalo $[a, b]$:</p>
+                        <div class="formula-box">
+                            $$R_n = \sum_{i=1}^{n} f(x_i^*) \cdot \Delta x$$
+                        </div>
+                        <p>Donde $x_i^*$ es un punto en el subintervalo $[x_{i-1}, x_i]$</p>
+                    </div>
+                </div>
+
+                <!-- Tipos de sumas de Riemann -->
+                <div class="riemann-types">
+                    <h3>🎯 Tipos de Sumas de Riemann</h3>
+                    <div class="types-grid">
+                        <div class="type-card">
+                            <h4>⬅️ Suma por la Izquierda</h4>
+                            <p>$x_i^* = x_{i-1}$ (extremo izquierdo)</p>
+                            <div class="formula-box">
+                                $$R_{\text{izq}} = \sum_{i=1}^{n} f(x_{i-1}) \cdot \Delta x$$
+                            </div>
+                            <div class="visualization">
+                                <canvas id="leftRiemannCanvas" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="type-card">
+                            <h4>➡️ Suma por la Derecha</h4>
+                            <p>$x_i^* = x_i$ (extremo derecho)</p>
+                            <div class="formula-box">
+                                $$R_{\text{der}} = \sum_{i=1}^{n} f(x_i) \cdot \Delta x$$
+                            </div>
+                            <div class="visualization">
+                                <canvas id="rightRiemannCanvas" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="type-card">
+                            <h4>🎯 Suma por el Punto Medio</h4>
+                            <p>$x_i^* = \frac{x_{i-1} + x_i}{2}$ (punto medio)</p>
+                            <div class="formula-box">
+                                $$R_{\text{medio}} = \sum_{i=1}^{n} f\left(\frac{x_{i-1} + x_i}{2}\right) \cdot \Delta x$$
+                            </div>
+                            <div class="visualization">
+                                <canvas id="midpointRiemannCanvas" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo paso a paso -->
+                <div class="step-by-step-example">
+                    <h3>📝 Ejemplo Paso a Paso</h3>
+                    <div class="example-problem">
+                        <h4>Problema:</h4>
+                        <p>Calcular la suma de Riemann para $f(x) = x^2$ en el intervalo $[0, 2]$ usando $n = 4$ subintervalos.</p>
+                    </div>
+
+                    <div class="solution-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Paso 1: Calcular $\Delta x$</h5>
+                                <p>$$\Delta x = \frac{b - a}{n} = \frac{2 - 0}{4} = \frac{2}{4} = 0.5$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Paso 2: Determinar los puntos de la partición</h5>
+                                <p>$$x_0 = 0, \quad x_1 = 0.5, \quad x_2 = 1.0, \quad x_3 = 1.5, \quad x_4 = 2.0$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Paso 3: Calcular la suma por la izquierda</h5>
+                                <p>$$R_{\text{izq}} = f(0) \cdot 0.5 + f(0.5) \cdot 0.5 + f(1.0) \cdot 0.5 + f(1.5) \cdot 0.5$$</p>
+                                <p>$$R_{\text{izq}} = 0^2 \cdot 0.5 + 0.5^2 \cdot 0.5 + 1.0^2 \cdot 0.5 + 1.5^2 \cdot 0.5$$</p>
+                                <p>$$R_{\text{izq}} = 0 + 0.125 + 0.5 + 1.125 = 1.75$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Paso 4: Calcular la suma por la derecha</h5>
+                                <p>$$R_{\text{der}} = f(0.5) \cdot 0.5 + f(1.0) \cdot 0.5 + f(1.5) \cdot 0.5 + f(2.0) \cdot 0.5$$</p>
+                                <p>$$R_{\text{der}} = 0.5^2 \cdot 0.5 + 1.0^2 \cdot 0.5 + 1.5^2 \cdot 0.5 + 2.0^2 \cdot 0.5$$</p>
+                                <p>$$R_{\text{der}} = 0.125 + 0.5 + 1.125 + 2.0 = 3.75$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>Paso 5: Calcular la suma por el punto medio</h5>
+                                <p>$$R_{\text{medio}} = f(0.25) \cdot 0.5 + f(0.75) \cdot 0.5 + f(1.25) \cdot 0.5 + f(1.75) \cdot 0.5$$</p>
+                                <p>$$R_{\text{medio}} = 0.25^2 \cdot 0.5 + 0.75^2 \cdot 0.5 + 1.25^2 \cdot 0.5 + 1.75^2 \cdot 0.5$$</p>
+                                <p>$$R_{\text{medio}} = 0.03125 + 0.28125 + 0.78125 + 1.53125 = 2.625$$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-conclusion">
+                        <h4>📊 Resultados:</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="result-label">Suma por la izquierda:</span>
+                                <span class="result-value">1.75</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Suma por la derecha:</span>
+                                <span class="result-value">3.75</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Suma por el punto medio:</span>
+                                <span class="result-value">2.625</span>
+                            </div>
+                            <div class="result-item highlight">
+                                <span class="result-label">Valor exacto (integral):</span>
+                                <span class="result-value">$\frac{8}{3} \approx 2.667$</span>
+                            </div>
+                        </div>
+                        <p><strong>Observación:</strong> La suma por el punto medio es la más precisa para este ejemplo.</p>
+                    </div>
+                </div>
+
+                <!-- Visualización interactiva -->
+                <div class="interactive-visualization">
+                    <h3>🎮 Visualización Interactiva</h3>
+                    <div class="visualization-controls">
+                        <div class="control-group">
+                            <label for="functionSelect">Función:</label>
+                            <select id="functionSelect">
+                                <option value="x^2">$f(x) = x^2$</option>
+                                <option value="x^3">$f(x) = x^3$</option>
+                                <option value="sin(x)">$f(x) = \sin(x)$</option>
+                                <option value="exp(x)">$f(x) = e^x$</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="intervalA">Intervalo [a, b]:</label>
+                            <input type="number" id="intervalA" value="0" step="0.1">
+                            <input type="number" id="intervalB" value="2" step="0.1">
+                        </div>
+                        <div class="control-group">
+                            <label for="numRectangles">Número de rectángulos:</label>
+                            <input type="range" id="numRectangles" min="1" max="50" value="10">
+                            <span id="numRectanglesValue">10</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="riemannType">Tipo de suma:</label>
+                            <select id="riemannType">
+                                <option value="left">Izquierda</option>
+                                <option value="right">Derecha</option>
+                                <option value="midpoint">Punto medio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="visualization-container">
+                        <div id="geogebra-container" style="width: 100%; height: 400px;"></div>
+                    </div>
+                    <div class="calculation-results">
+                        <div class="result-display">
+                            <span class="result-label">Suma de Riemann:</span>
+                            <span class="result-value" id="riemannSum">0</span>
+                        </div>
+                        <div class="result-display">
+                            <span class="result-label">Valor exacto:</span>
+                            <span class="result-value" id="exactValue">0</span>
+                        </div>
+                        <div class="result-display">
+                            <span class="result-label">Error:</span>
+                            <span class="result-value" id="errorValue">0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2.2: Integral Definida -->
+            <section id="integral-definida" class="content-section">
+                <div class="section-header">
+                    <h2>📐 2.2 La Integral Definida</h2>
+                    <p class="section-subtitle">De las sumas finitas al límite infinito</p>
+                </div>
+
+                <!-- Definición formal -->
+                <div class="definition-box">
+                    <h3>📖 Definición Formal de la Integral Definida</h3>
+                    <div class="definition-content">
+                        <p>Sea $f$ una función definida en el intervalo $[a, b]$. La <strong>integral definida</strong> de $f$ desde $a$ hasta $b$ se define como:</p>
+                        <div class="formula-box large">
+                            $$\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \cdot \Delta x$$
+                        </div>
+                        <p>siempre que este límite exista y sea el mismo para cualquier elección de puntos $x_i^*$ en los subintervalos.</p>
+                    </div>
+                </div>
+
+                <!-- Notación de Leibniz -->
+                <div class="notation-section">
+                    <h3>✍️ Notación de Leibniz</h3>
+                    <div class="notation-explanation">
+                        <div class="notation-symbol">
+                            <div class="integral-symbol">$\int$</div>
+                            <div class="symbol-explanation">
+                                <h4>Símbolo de integración</h4>
+                                <p>Una "S" estilizada que significa "suma" (del latín "summa")</p>
+                            </div>
+                        </div>
+                        <div class="notation-components">
+                            <div class="component">
+                                <span class="component-symbol">$\int_a^b$</span>
+                                <span class="component-name">Límites de integración</span>
+                            </div>
+                            <div class="component">
+                                <span class="component-symbol">$f(x)$</span>
+                                <span class="component-name">Integrando</span>
+                            </div>
+                            <div class="component">
+                                <span class="component-symbol">$dx$</span>
+                                <span class="component-name">Diferencial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propiedades de la integral definida -->
+                <div class="properties-section">
+                    <h3>🔧 Propiedades de la Integral Definida</h3>
+                    <div class="properties-grid">
+                        <div class="property-card">
+                            <h4>1️⃣ Linealidad</h4>
+                            <div class="formula-box">
+                                $$\int_a^b [f(x) + g(x)] \, dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx$$
+                            </div>
+                            <div class="formula-box">
+                                $$\int_a^b c \cdot f(x) \, dx = c \int_a^b f(x) \, dx$$
+                            </div>
+                        </div>
+
+                        <div class="property-card">
+                            <h4>2️⃣ Aditividad en Intervalos</h4>
+                            <div class="formula-box">
+                                $$\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$$
+                            </div>
+                            <p>donde $a < c < b$</p>
+                        </div>
+
+                        <div class="property-card">
+                            <h4>3️⃣ Cambio de Límites</h4>
+                            <div class="formula-box">
+                                $$\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx$$
+                            </div>
+                            <div class="formula-box">
+                                $$\int_a^a f(x) \, dx = 0$$
+                            </div>
+                        </div>
+
+                        <div class="property-card">
+                            <h4>4️⃣ Comparación</h4>
+                            <div class="formula-box">
+                                $$\text{Si } f(x) \leq g(x) \text{ en } [a,b], \text{ entonces}$$
+                            </div>
+                            <div class="formula-box">
+                                $$\int_a^b f(x) \, dx \leq \int_a^b g(x) \, dx$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo de aplicación de propiedades -->
+                <div class="properties-example">
+                    <h3>📝 Ejemplo: Aplicación de Propiedades</h3>
+                    <div class="example-problem">
+                        <h4>Problema:</h4>
+                        <p>Calcular $\int_0^2 (3x^2 + 2x - 1) \, dx$ usando las propiedades de linealidad.</p>
+                    </div>
+
+                    <div class="solution-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Aplicar la propiedad de linealidad</h5>
+                                <p>$$\int_0^2 (3x^2 + 2x - 1) \, dx = \int_0^2 3x^2 \, dx + \int_0^2 2x \, dx + \int_0^2 (-1) \, dx$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Factorizar constantes</h5>
+                                <p>$$= 3\int_0^2 x^2 \, dx + 2\int_0^2 x \, dx - \int_0^2 1 \, dx$$</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Calcular cada integral</h5>
+                                <p>$$= 3\left[\frac{x^3}{3}\right]_0^2 + 2\left[\frac{x^2}{2}\right]_0^2 - [x]_0^2$$</p>
+                                <p>$$= 3\left(\frac{8}{3} - 0\right) + 2\left(\frac{4}{2} - 0\right) - (2 - 0)$$</p>
+                                <p>$$= 8 + 4 - 2 = 10$$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 2.3: Teorema Fundamental del Cálculo -->
+            <section id="teorema-fundamental" class="content-section">
+                <div class="section-header">
+                    <h2>🔑 2.3 Teorema Fundamental del Cálculo</h2>
+                    <p class="section-subtitle">El puente entre derivación e integración</p>
+                </div>
+
+                <!-- Introducción al TFC -->
+                <div class="tfc-introduction">
+                    <h3>🌉 El Puente Fundamental</h3>
+                    <p>El Teorema Fundamental del Cálculo establece la conexión profunda entre la derivación y la integración. Es considerado uno de los teoremas más importantes en matemáticas.</p>
+                    
+                    <div class="bridge-visualization">
+                        <div class="bridge-section">
+                            <h4>Derivación</h4>
+                            <p>Dada una función $f(x)$, encontramos su derivada $f'(x)$</p>
+                            <div class="arrow">→</div>
+                        </div>
+                        <div class="bridge-section">
+                            <h4>Integración</h4>
+                            <p>Dada una función $f(x)$, encontramos su integral $\int f(x) \, dx$</p>
+                            <div class="arrow">→</div>
+                        </div>
+                        <div class="bridge-section highlight">
+                            <h4>TFC</h4>
+                            <p>Conecta ambos procesos de manera fundamental</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primera parte del TFC -->
+                <div class="tfc-part-one">
+                    <h3>📖 Primera Parte del TFC</h3>
+                    <div class="theorem-box">
+                        <h4>Teorema:</h4>
+                        <p>Si $f$ es continua en $[a, b]$ y $F(x) = \int_a^x f(t) \, dt$, entonces $F$ es derivable en $(a, b)$ y:</p>
+                        <div class="formula-box large">
+                            $$F'(x) = f(x)$$
+                        </div>
+                        <p>En otras palabras: <strong>La derivada de la integral es el integrando original.</strong></p>
+                    </div>
+
+                    <div class="tfc-example">
+                        <h4>📝 Ejemplo:</h4>
+                        <p>Si $F(x) = \int_0^x t^2 \, dt$, entonces $F'(x) = x^2$</p>
+                        
+                        <div class="verification">
+                            <h5>Verificación:</h5>
+                            <p>$$F(x) = \int_0^x t^2 \, dt = \left[\frac{t^3}{3}\right]_0^x = \frac{x^3}{3}$$</p>
+                            <p>$$F'(x) = \frac{d}{dx}\left(\frac{x^3}{3}\right) = x^2$$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segunda parte del TFC -->
+                <div class="tfc-part-two">
+                    <h3>📖 Segunda Parte del TFC (Regla de Barrow)</h3>
+                    <div class="theorem-box">
+                        <h4>Teorema:</h4>
+                        <p>Si $f$ es continua en $[a, b]$ y $F$ es cualquier antiderivada de $f$, entonces:</p>
+                        <div class="formula-box large">
+                            $$\int_a^b f(x) \, dx = F(b) - F(a)$$
+                        </div>
+                        <p>Esta es la fórmula que usamos para evaluar integrales definidas.</p>
+                    </div>
+
+                    <div class="tfc-example">
+                        <h4>📝 Ejemplo:</h4>
+                        <p>Calcular $\int_1^3 x^2 \, dx$</p>
+                        
+                        <div class="solution-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Encontrar una antiderivada</h5>
+                                    <p>Una antiderivada de $x^2$ es $F(x) = \frac{x^3}{3}$</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Aplicar la segunda parte del TFC</h5>
+                                    <p>$$\int_1^3 x^2 \, dx = F(3) - F(1) = \frac{3^3}{3} - \frac{1^3}{3}$$</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Calcular</h5>
+                                    <p>$$= \frac{27}{3} - \frac{1}{3} = \frac{26}{3}$$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notación de evaluación -->
+                <div class="evaluation-notation">
+                    <h3>✍️ Notación de Evaluación</h3>
+                    <p>Para evitar escribir $F(b) - F(a)$ repetidamente, usamos la notación:</p>
+                    <div class="formula-box large">
+                        $$\int_a^b f(x) \, dx = [F(x)]_a^b = F(b) - F(a)$$
+                    </div>
+                    
+                    <div class="notation-example">
+                        <h4>Ejemplo:</h4>
+                        <p>$$\int_0^2 (3x^2 + 2x) \, dx = [x^3 + x^2]_0^2 = (8 + 4) - (0 + 0) = 12$$</p>
+                    </div>
+                </div>
+
+                <!-- Aplicaciones del TFC -->
+                <div class="tfc-applications">
+                    <h3>🎯 Aplicaciones del TFC</h3>
+                    <div class="applications-grid">
+                        <div class="application-card">
+                            <h4>📊 Cálculo de Áreas</h4>
+                            <p>El área bajo la curva $y = f(x)$ desde $a$ hasta $b$ es:</p>
+                            <div class="formula-box">
+                                $$A = \int_a^b f(x) \, dx$$
+                            </div>
+                        </div>
+
+                        <div class="application-card">
+                            <h4>⚡ Trabajo en Física</h4>
+                            <p>El trabajo realizado por una fuerza variable $F(x)$ es:</p>
+                            <div class="formula-box">
+                                $$W = \int_a^b F(x) \, dx$$
+                            </div>
+                        </div>
+
+                        <div class="application-card">
+                            <h4>📈 Valor Promedio</h4>
+                            <p>El valor promedio de $f(x)$ en $[a, b]$ es:</p>
+                            <div class="formula-box">
+                                $$f_{\text{prom}} = \frac{1}{b-a} \int_a^b f(x) \, dx$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Ejercicios -->
+            <section id="ejercicios" class="content-section">
+                <div class="section-header">
+                    <h2>💪 Ejercicios Prácticos</h2>
+                    <p class="section-subtitle">Pon a prueba tu comprensión</p>
+                </div>
+
+                <!-- Ejercicios de sumas de Riemann -->
+                <div class="exercise-section">
+                    <h3>📊 Ejercicios de Sumas de Riemann</h3>
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <h4>Ejercicio 1</h4>
+                            <p>Calcular la suma de Riemann por la izquierda para $f(x) = x^3$ en $[0, 2]$ con $n = 4$.</p>
+                            <div class="exercise-solution" style="display: none;">
+                                <h5>Solución:</h5>
+                                <p>$\Delta x = \frac{2-0}{4} = 0.5$</p>
+                                <p>$R_{\text{izq}} = f(0) \cdot 0.5 + f(0.5) \cdot 0.5 + f(1) \cdot 0.5 + f(1.5) \cdot 0.5$</p>
+                                <p>$= 0 + 0.0625 + 0.5 + 1.6875 = 2.25$</p>
+                            </div>
+                            <button class="solution-toggle" onclick="toggleSolution(this)">Ver Solución</button>
+                        </div>
+
+                        <div class="exercise-card">
+                            <h4>Ejercicio 2</h4>
+                            <p>Calcular la suma de Riemann por el punto medio para $f(x) = \sin(x)$ en $[0, \pi]$ con $n = 6$.</p>
+                            <div class="exercise-solution" style="display: none;">
+                                <h5>Solución:</h5>
+                                <p>$\Delta x = \frac{\pi-0}{6} = \frac{\pi}{6}$</p>
+                                <p>Puntos medios: $\frac{\pi}{12}, \frac{3\pi}{12}, \frac{5\pi}{12}, \frac{7\pi}{12}, \frac{9\pi}{12}, \frac{11\pi}{12}$</p>
+                                <p>$R_{\text{medio}} = \frac{\pi}{6} \sum_{i=1}^{6} \sin\left(\frac{(2i-1)\pi}{12}\right) \approx 1.954$</p>
+                            </div>
+                            <button class="solution-toggle" onclick="toggleSolution(this)">Ver Solución</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios de integral definida -->
+                <div class="exercise-section">
+                    <h3>📐 Ejercicios de Integral Definida</h3>
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <h4>Ejercicio 3</h4>
+                            <p>Evaluar $\int_1^4 (2x + 3) \, dx$</p>
+                            <div class="exercise-solution" style="display: none;">
+                                <h5>Solución:</h5>
+                                <p>Una antiderivada de $2x + 3$ es $F(x) = x^2 + 3x$</p>
+                                <p>$\int_1^4 (2x + 3) \, dx = [x^2 + 3x]_1^4$</p>
+                                <p>$= (16 + 12) - (1 + 3) = 28 - 4 = 24$</p>
+                            </div>
+                            <button class="solution-toggle" onclick="toggleSolution(this)">Ver Solución</button>
+                        </div>
+
+                        <div class="exercise-card">
+                            <h4>Ejercicio 4</h4>
+                            <p>Evaluar $\int_0^{\pi/2} \cos(x) \, dx$</p>
+                            <div class="exercise-solution" style="display: none;">
+                                <h5>Solución:</h5>
+                                <p>Una antiderivada de $\cos(x)$ es $F(x) = \sin(x)$</p>
+                                <p>$\int_0^{\pi/2} \cos(x) \, dx = [\sin(x)]_0^{\pi/2}$</p>
+                                <p>$= \sin(\pi/2) - \sin(0) = 1 - 0 = 1$</p>
+                            </div>
+                            <button class="solution-toggle" onclick="toggleSolution(this)">Ver Solución</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora interactiva -->
+                <div class="interactive-calculator">
+                    <h3>🧮 Calculadora de Integrales Definidas</h3>
+                    <div class="calculator-container">
+                        <div class="calculator-input">
+                            <label for="integralFunction">Función:</label>
+                            <input type="text" id="integralFunction" placeholder="x^2" value="x^2">
+                            
+                            <label for="integralLower">Límite inferior:</label>
+                            <input type="number" id="integralLower" value="0" step="0.1">
+                            
+                            <label for="integralUpper">Límite superior:</label>
+                            <input type="number" id="integralUpper" value="2" step="0.1">
+                            
+                            <button onclick="calculateIntegral()">Calcular</button>
+                        </div>
+                        
+                        <div class="calculator-output">
+                            <div class="result-display">
+                                <span class="result-label">Resultado:</span>
+                                <span class="result-value" id="integralResult">-</span>
+                            </div>
+                            <div class="result-display">
+                                <span class="result-label">Antiderivada:</span>
+                                <span class="result-value" id="antiderivative">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resumen del módulo -->
+            <section class="module-summary">
+                <div class="summary-card">
+                    <h2>📋 Resumen del Módulo 2</h2>
+                    <div class="summary-content">
+                        <div class="summary-section">
+                            <h3>🎯 Conceptos Clave</h3>
+                            <ul>
+                                <li>✅ Sumas de Riemann aproximan áreas bajo curvas</li>
+                                <li>✅ La integral definida es el límite de las sumas de Riemann</li>
+                                <li>✅ El TFC conecta derivación e integración</li>
+                                <li>✅ Podemos evaluar integrales usando antiderivadas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="summary-section">
+                            <h3>🔧 Fórmulas Importantes</h3>
+                            <div class="formula-list">
+                                <div class="formula-item">
+                                    <span class="formula-label">Suma de Riemann:</span>
+                                    <span class="formula">$R_n = \sum_{i=1}^{n} f(x_i^*) \cdot \Delta x$</span>
+                                </div>
+                                <div class="formula-item">
+                                    <span class="formula-label">Integral Definida:</span>
+                                    <span class="formula">$\int_a^b f(x) \, dx = \lim_{n \to \infty} R_n$</span>
+                                </div>
+                                <div class="formula-item">
+                                    <span class="formula-label">TFC (Regla de Barrow):</span>
+                                    <span class="formula">$\int_a^b f(x) \, dx = F(b) - F(a)$</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-section">
+                            <h3>📈 Próximos Pasos</h3>
+                            <p>En el Módulo 3 aprenderás técnicas avanzadas de integración para resolver integrales que no son inmediatas.</p>
+                            <a href="modulo3_tecnicas_integracion.html" class="next-module-btn">Continuar al Módulo 3 →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cálculo Integral</h4>
+                    <p>Desarrollado con pasión para el aprendizaje matemático</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Bibliografía</a></li>
+                        <li><a href="#">Software</a></li>
+                        <li><a href="#">Ejercicios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>profesor@institucion.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JMGV-PTEL. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="modulo2-script.js"></script>
+    <script src="auth-manager.js"></script>
+</body>
+</html>

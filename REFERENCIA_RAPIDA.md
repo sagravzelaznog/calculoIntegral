@@ -203,3 +203,5 @@ Visual: guia-github.html
 
 **© 2025 - José Manuel González Vargas**
 
+
+
