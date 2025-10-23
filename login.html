@@ -263,6 +263,7 @@
                 <p style="margin-top: 10px;">Módulo 5: Ecuaciones Diferenciales <span id="progress5">0%</span></p>
                 <div class="progress-bar"><div class="progress-fill" id="bar5" style="width: 0%"></div></div>
                 
+                <button class="btn" onclick="window.location.href='index.html'" style="background: #28a745; margin-bottom: 10px;">Ir al Portal Principal</button>
                 <button class="btn logout-btn" onclick="handleLogout()">Cerrar Sesión</button>
             </div>
         </div>
@@ -329,6 +330,10 @@
             if (resultado.success) {
                 mostrarMensaje('✅ ' + resultado.message, 'success');
                 document.getElementById('loginForm').reset();
+                // Redirigir al portal principal después del login exitoso
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
             } else {
                 mostrarMensaje('❌ ' + resultado.message, 'error');
             }
@@ -348,8 +353,10 @@
             if (resultado.success) {
                 mostrarMensaje('✅ ' + resultado.message, 'success');
                 document.getElementById('registroForm').reset();
-                // Cambiar a tab de login
-                setTimeout(() => cambiarTab('login'), 2000);
+                // Redirigir al portal principal después del registro exitoso
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
             } else {
                 mostrarMensaje('❌ ' + resultado.message, 'error');
             }

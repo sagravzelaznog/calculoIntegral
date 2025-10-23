@@ -20,8 +20,7 @@ git add .
 git commit -m "🎉 Primer commit: Plataforma de Cálculo Integral con Firebase"
 
 # 6. Conectar con GitHub (reemplaza TU_USUARIO)
-git remote add origin https://github.com/TU_USUARIO/calculo-integral.git
-
+git remote add origin https://github.com/sagravzelaznog/calculoIntegral.git
 # 7. Cambiar a rama main
 git branch -M main
 

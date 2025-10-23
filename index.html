@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo Integral - Portal Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-name {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .btn-logout {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .welcome-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .progress-overview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .progress-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-percentage {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--module-color, #667eea);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            color: var(--module-color, #667eea);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .module-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .module-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .module-features li {
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .module-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .module-btn {
+            background: var(--module-color, #667eea);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .module-btn:hover {
+            background: var(--module-hover, #5a6fd8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .exercises-btn {
+            background: #28a745;
+            margin-top: 10px;
+        }
+
+        .exercises-btn:hover {
+            background: #218838;
+        }
+
+        .quick-access {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-access h3 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .welcome-title {
+                font-size: 2.2rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <h1>Cálculo Integral</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#inicio" class="nav-link">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="#modulos" class="nav-link">
+                    <i class="fas fa-book"></i> Módulos
+                </a>
+                <a href="#progreso" class="nav-link">
+                    <i class="fas fa-chart-line"></i> Progreso
+                </a>
+                <a href="login.html" class="nav-link">
+                    <i class="fas fa-user"></i> Perfil
+                </a>
+            </nav>
+            <div class="user-info">
+                <span class="user-name" id="user-name">Usuario</span>
+                <button class="btn-logout" id="logout-btn">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-container">
+        <!-- Sección de bienvenida -->
+        <section class="welcome-section" id="inicio">
+            <h1 class="welcome-title">
+                <i class="fas fa-graduation-cap"></i>
+                Bienvenido al Portal de Cálculo Integral
+            </h1>
+            <p class="welcome-subtitle">
+                Domina el cálculo integral con nuestros módulos interactivos y ejercicios paso a paso
+            </p>
+        </section>
+
+        <!-- Sección de progreso -->
+        <section class="progress-overview" id="progreso">
+            <h2 class="progress-title">
+                <i class="fas fa-chart-line"></i>
+                Tu Progreso de Aprendizaje
+            </h2>
+            <div class="progress-grid">
+                <div class="progress-item">
+                    <h4>Módulo 1</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress1" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percentage" id="percent1">0%</span>
+                </div>
+                <div class="progress-item">
+                    <h4>Módulo 2</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress2" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percentage" id="percent2">0%</span>
+                </div>
+                <div class="progress-item">
+                    <h4>Módulo 3</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress3" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percentage" id="percent3">0%</span>
+                </div>
+                <div class="progress-item">
+                    <h4>Módulo 4</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress4" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percentage" id="percent4">0%</span>
+                </div>
+                <div class="progress-item">
+                    <h4>Módulo 5</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress5" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-percentage" id="percent5">0%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de módulos -->
+        <section class="modules-grid" id="modulos">
+            <!-- Módulo 1: Antiderivadas -->
+            <div class="module-card" style="--module-color: #e74c3c; --module-hover: #c0392b;">
+                <i class="fas fa-function module-icon"></i>
+                <h3 class="module-title">Módulo 1: Antiderivadas e Integrales Indefinidas</h3>
+                <p class="module-description">
+                    Aprende los conceptos fundamentales del cálculo integral, incluyendo antiderivadas, integrales indefinidas y sus propiedades básicas.
+                </p>
+                <ul class="module-features">
+                    <li>Conceptos de antiderivadas</li>
+                    <li>Integrales indefinidas</li>
+                    <li>Propiedades básicas</li>
+                    <li>Reglas de integración</li>
+                </ul>
+                <a href="modulo1_antiderivadas.html" class="module-btn">
+                    <i class="fas fa-play"></i> Estudiar Módulo
+                </a>
+                <a href="ejercicios_modulo1.html" class="module-btn exercises-btn">
+                    <i class="fas fa-dumbbell"></i> Ejercicios
+                </a>
+            </div>
+
+            <!-- Módulo 2: Integral Definida -->
+            <div class="module-card" style="--module-color: #3498db; --module-hover: #2980b9;">
+                <i class="fas fa-chart-area module-icon"></i>
+                <h3 class="module-title">Módulo 2: Sumas de Riemann y la Integral Definida</h3>
+                <p class="module-description">
+                    Explora las sumas de Riemann, el concepto de integral definida y el teorema fundamental del cálculo.
+                </p>
+                <ul class="module-features">
+                    <li>Sumas de Riemann</li>
+                    <li>Integral definida</li>
+                    <li>Teorema fundamental del cálculo</li>
+                    <li>Aplicaciones geométricas</li>
+                </ul>
+                <a href="modulo2_integral_definida.html" class="module-btn">
+                    <i class="fas fa-play"></i> Estudiar Módulo
+                </a>
+                <a href="ejercicios_modulo2.html" class="module-btn exercises-btn">
+                    <i class="fas fa-dumbbell"></i> Ejercicios
+                </a>
+            </div>
+
+            <!-- Módulo 3: Técnicas de Integración -->
+            <div class="module-card" style="--module-color: #f39c12; --module-hover: #e67e22;">
+                <i class="fas fa-tools module-icon"></i>
+                <h3 class="module-title">Módulo 3: Técnicas de Integración</h3>
+                <p class="module-description">
+                    Domina las diferentes técnicas de integración: sustitución, integración por partes, fracciones parciales y más.
+                </p>
+                <ul class="module-features">
+                    <li>Integración por sustitución</li>
+                    <li>Integración por partes</li>
+                    <li>Fracciones parciales</li>
+                    <li>Integrales trigonométricas</li>
+                </ul>
+                <a href="modulo3_interactivo.html" class="module-btn">
+                    <i class="fas fa-play"></i> Estudiar Módulo
+                </a>
+                <a href="EJERCICIOS_MODULO3.md" class="module-btn exercises-btn">
+                    <i class="fas fa-dumbbell"></i> Ejercicios
+                </a>
+            </div>
+
+            <!-- Módulo 4: Aplicaciones -->
+            <div class="module-card" style="--module-color: #27ae60; --module-hover: #229954;">
+                <i class="fas fa-rocket module-icon"></i>
+                <h3 class="module-title">Módulo 4: Aplicaciones de la Integral</h3>
+                <p class="module-description">
+                    Descubre las aplicaciones prácticas del cálculo integral en cálculo de áreas, volúmenes y problemas de física.
+                </p>
+                <ul class="module-features">
+                    <li>Cálculo de áreas</li>
+                    <li>Cálculo de volúmenes</li>
+                    <li>Aplicaciones en física</li>
+                    <li>Problemas prácticos</li>
+                </ul>
+                <a href="index_modulo4.html" class="module-btn">
+                    <i class="fas fa-play"></i> Portal del Módulo
+                </a>
+                <a href="modulo4_aplicaciones.html" class="module-btn exercises-btn">
+                    <i class="fas fa-book"></i> Contenido Completo
+                </a>
+            </div>
+
+            <!-- Módulo 5: Ecuaciones Diferenciales -->
+            <div class="module-card" style="--module-color: #9b59b6; --module-hover: #8e44ad;">
+                <i class="fas fa-infinity module-icon"></i>
+                <h3 class="module-title">Módulo 5: Ecuaciones Diferenciales</h3>
+                <p class="module-description">
+                    Introduce las ecuaciones diferenciales y su resolución, conectando el cálculo integral con aplicaciones avanzadas.
+                </p>
+                <ul class="module-features">
+                    <li>Ecuaciones diferenciales básicas</li>
+                    <li>Métodos de resolución</li>
+                    <li>Aplicaciones prácticas</li>
+                    <li>Modelado matemático</li>
+                </ul>
+                <a href="modulo5_ecuaciones_diferenciales.html" class="module-btn">
+                    <i class="fas fa-play"></i> Estudiar Módulo
+                </a>
+                <a href="ejercicios_modulo5.html" class="module-btn exercises-btn">
+                    <i class="fas fa-dumbbell"></i> Ejercicios
+                </a>
+            </div>
+        </section>
+
+        <!-- Acceso rápido -->
+        <section class="quick-access">
+            <h3>
+                <i class="fas fa-bolt"></i>
+                Acceso Rápido
+            </h3>
+            <p>Enlaces directos a recursos y herramientas útiles:</p>
+            <div class="quick-links">
+                <a href="login.html" class="quick-link">
+                    <i class="fas fa-user"></i> Mi Perfil
+                </a>
+                <a href="README.md" class="quick-link">
+                    <i class="fas fa-book"></i> Documentación
+                </a>
+                <a href="REFERENCIA_RAPIDA.md" class="quick-link">
+                    <i class="fas fa-lightning-bolt"></i> Referencia Rápida
+                </a>
+                <a href="planeacionCI.MD" class="quick-link">
+                    <i class="fas fa-calendar"></i> Planificación
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h3>
+                <i class="fas fa-heart"></i>
+                Desarrollado con Pasión
+            </h3>
+            <p>
+                Este portal representa el compromiso con la excelencia en la educación matemática 
+                y la innovación tecnológica en el aprendizaje del cálculo integral.
+            </p>
+            <div style="margin-top: 20px;">
+                <strong>© 2025 JMGV-PTEL - Todos los derechos reservados</strong><br>
+                <em>Elaborado por: José Manuel González Vargas</em>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { 
+            observarEstadoAuth 
+        } from './auth-manager.js';
+
+        // Observar estado de autenticación
+        observarEstadoAuth((estado) => {
+            if (estado.autenticado) {
+                mostrarInfoUsuario(estado.usuario, estado.datos);
+            } else {
+                // Redirigir al login si no está autenticado
+                window.location.href = 'login.html';
+            }
+        });
+
+        function mostrarInfoUsuario(usuario, datos) {
+            document.getElementById('user-name').textContent = datos?.displayName || usuario.email;
+            
+            // Mostrar progreso si está disponible
+            if (datos && datos.progress) {
+                for (let i = 1; i <= 5; i++) {
+                    const progreso = datos.progress[`modulo${i}`] || 0;
+                    document.getElementById(`progress${i}`).style.width = `${progreso}%`;
+                    document.getElementById(`percent${i}`).textContent = `${progreso}%`;
+                }
+            }
+        }
+
+        // Manejar logout
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            const { cerrarSesion } = await import('./auth-manager.js');
+            const resultado = await cerrarSesion();
+            if (resultado.success) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Animaciones de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.module-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Animación de barras de progreso
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease';
+                    bar.style.width = width;
+                }, 1000);
+            });
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efecto de hover mejorado para las tarjetas
+        document.querySelectorAll('.module-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
