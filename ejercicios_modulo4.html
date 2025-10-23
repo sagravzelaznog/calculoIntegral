@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios Interactivos - Módulo 4: Aplicaciones de la Integral</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -21,336 +21,10 @@
             }
         };
     </script>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --warning-color: #f39c12;
-            --light-bg: #ecf0f1;
-            --dark-text: #2c3e50;
-            --light-text: #7f8c8d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--primary-color);
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .exercise-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .exercise-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--secondary-color);
-        }
-
-        .exercise-title {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .difficulty-indicator {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-left: auto;
-        }
-
-        .difficulty-basic { background: var(--success-color); color: white; }
-        .difficulty-intermediate { background: var(--warning-color); color: white; }
-        .difficulty-advanced { background: var(--accent-color); color: white; }
-
-        .problem-statement {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .solution-steps {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            border-left: 5px solid var(--secondary-color);
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin: 20px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .step-number {
-            background: var(--secondary-color);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
-        .step-title {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .formula-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .interactive-calculator {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .calculator-input {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .input-group label {
-            font-weight: bold;
-            color: var(--dark-text);
-        }
-
-        .input-group input {
-            padding: 10px;
-            border: 2px solid var(--secondary-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            text-align: center;
-            width: 120px;
-        }
-
-        .calculate-btn {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-
-        .calculate-btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .result-display {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 2px solid var(--success-color);
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--dark-text);
-        }
-
-        .visualization {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .visualization h4 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .graph-placeholder {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            margin: 15px 0;
-        }
-
-        .hint-box {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
-            border-left: 5px solid var(--warning-color);
-        }
-
-        .hint-box h5 {
-            color: var(--dark-text);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-            gap: 15px;
-        }
-
-        .nav-btn {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .progress-indicator {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .progress-bar {
-            background: var(--light-bg);
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .calculator-input {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .navigation-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="module-container">
+        <div class="module-header">
             <h1><i class="fas fa-dumbbell"></i> Ejercicios Interactivos</h1>
             <p>Módulo 4: Aplicaciones de la Integral - Práctica Guiada</p>
         </div>
@@ -358,13 +32,13 @@
         <div class="progress-indicator">
             <h3>Progreso del Ejercicio</h3>
             <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                <div class="progress-fill" id="progressFill"></div>
             </div>
             <p>Ejercicio <span id="currentExercise">1</span> de <span id="totalExercises">8</span></p>
         </div>
 
         <!-- Ejercicio 1: Área bajo una curva -->
-        <div class="exercise-container" id="exercise1">
+        <div class="module-exercise-container" id="exercise1">
             <div class="exercise-header">
                 <div class="exercise-title">
                     <i class="fas fa-square"></i>
@@ -461,7 +135,7 @@
                     <i class="fas fa-calculator"></i> Calcular Área
                 </button>
                 
-                <div class="result-display" id="result1" style="display: none;">
+                <div class="result-display" id="result1">
                     <i class="fas fa-check-circle"></i> Resultado: <span id="areaResult"></span>
                 </div>
             </div>
@@ -476,7 +150,7 @@
         </div>
 
         <!-- Ejercicio 2: Área entre dos curvas -->
-        <div class="exercise-container" id="exercise2" style="display: none;">
+        <div class="module-exercise-container" id="exercise2">
             <div class="exercise-header">
                 <div class="exercise-title">
                     <i class="fas fa-layer-group"></i>
@@ -550,14 +224,14 @@
                     <i class="fas fa-calculator"></i> Calcular Área Entre Curvas
                 </button>
                 
-                <div class="result-display" id="result2" style="display: none;">
+                <div class="result-display" id="result2">
                     <i class="fas fa-check-circle"></i> Resultado: <span id="areaBetweenResult"></span>
                 </div>
             </div>
         </div>
 
         <!-- Ejercicio 3: Volumen por método de discos -->
-        <div class="exercise-container" id="exercise3" style="display: none;">
+        <div class="module-exercise-container" id="exercise3">
             <div class="exercise-header">
                 <div class="exercise-title">
                     <i class="fas fa-compact-disc"></i>
@@ -620,7 +294,7 @@
         </div>
 
         <!-- Ejercicio 4: Volumen por método de arandelas -->
-        <div class="exercise-container" id="exercise4" style="display: none;">
+        <div class="module-exercise-container" id="exercise4">
             <div class="exercise-header">
                 <div class="exercise-title">
                     <i class="fas fa-ring"></i>
@@ -676,7 +350,7 @@
         </div>
 
         <!-- Ejercicio 5: Trabajo en resortes -->
-        <div class="exercise-container" id="exercise5" style="display: none;">
+        <div class="module-exercise-container" id="exercise5">
             <div class="exercise-header">
                 <div class="exercise-title">
                     <i class="fas fa-spring"></i>
@@ -747,7 +421,7 @@
                     <i class="fas fa-calculator"></i> Calcular Trabajo
                 </button>
                 
-                <div class="result-display" id="result5" style="display: none;">
+                <div class="result-display" id="result5">
                     <i class="fas fa-check-circle"></i> Resultado: <span id="springWorkResult"></span>
                 </div>
             </div>
@@ -767,7 +441,7 @@
             <button class="nav-btn" onclick="goToModule()">
                 <i class="fas fa-book"></i> Volver al Módulo 4
             </button>
-            <button class="nav-btn" onclick="=\'https://www.geogebra.org/calculator\'">
+            <button class="nav-btn" onclick="window.open('https://www.geogebra.org/calculator')">
                 <i class="fas fa-external-link-alt"></i> Abrir GeoGebra
             </button>
         </div>
