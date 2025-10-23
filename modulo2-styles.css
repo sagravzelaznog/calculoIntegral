@@ -1,21 +1,44 @@
 /* Estilos específicos para el Módulo 2: Sumas de Riemann y la Integral Definida */
 
-/* Variables CSS para el tema del módulo */
+/* Variables CSS para el tema del módulo con paleta azul-esmeralda */
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --background-color: #f8fafc;
-    --surface-color: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
+    /* Paleta Principal Azul-Esmeralda Profesional */
+    --primary-color: #1e3a8a;           /* Azul marino profundo */
+    --secondary-color: #0ea5e9;         /* Azul cielo vibrante */
+    --accent-color: #059669;            /* Esmeralda vibrante */
+    --success-color: #10b981;           /* Verde esmeralda */
+    --warning-color: #f59e0b;            /* Ámbar dorado */
+    --error-color: #dc2626;             /* Rojo profesional */
+    
+    /* Colores de fondo y superficie */
+    --background-color: #f0f9ff;        /* Azul muy claro */
+    --surface-color: #ffffff;           /* Blanco puro */
+    --surface-secondary: #f8fafc;      /* Gris muy claro */
+    
+    /* Colores de texto con alto contraste */
+    --text-primary: #0f172a;           /* Azul marino muy oscuro */
+    --text-secondary: #475569;         /* Azul gris medio */
+    --text-on-dark: #f8fafc;           /* Blanco azulado */
+    
+    /* Gradientes profesionales */
+    --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+    --gradient-secondary: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    --gradient-accent: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    
+    /* Sombras mejoradas */
+    --shadow-sm: 0 1px 2px 0 rgba(30, 58, 138, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(30, 58, 138, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(30, 58, 138, 0.15);
+    --shadow-colored: 0 10px 25px -5px rgba(14, 165, 233, 0.25);
+    
+    /* Bordes y líneas */
     --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --border-accent: #0ea5e9;
+    --border-success: #10b981;
+    
+    /* Transiciones y bordes */
     --border-radius: 8px;
     --border-radius-lg: 12px;
     --transition: all 0.3s ease;
@@ -32,7 +55,8 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -43,10 +67,10 @@ body {
 
 /* Header */
 .main-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-on-dark);
     padding: 1rem 0;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-colored);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -75,7 +99,7 @@ body {
 }
 
 .nav-link {
-    color: white;
+    color: var(--text-on-dark);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
@@ -84,11 +108,13 @@ body {
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
 }
 
 .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Barra de progreso */
@@ -210,8 +236,8 @@ body {
 }
 
 .nav-tab.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-on-dark);
     box-shadow: var(--shadow-sm);
 }
 
@@ -249,16 +275,18 @@ body {
 /* Cajas de motivación */
 .motivation-box {
     background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    border: 1px solid #0ea5e9;
+    border: 2px solid var(--secondary-color);
     border-radius: var(--border-radius-lg);
     padding: 2rem;
     margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .motivation-box h3 {
-    color: #0369a1;
+    color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .problem-visualization {
@@ -296,8 +324,8 @@ body {
 
 /* Cajas de fórmulas */
 .formula-box {
-    background: #f8fafc;
-    border: 1px solid var(--border-color);
+    background: var(--surface-secondary);
+    border: 2px solid var(--border-accent);
     border-radius: var(--border-radius);
     padding: 1rem;
     margin: 1rem 0;
@@ -305,6 +333,7 @@ body {
     font-family: 'Fira Code', monospace;
     font-size: 1.125rem;
     overflow-x: auto;
+    box-shadow: var(--shadow-sm);
 }
 
 .formula-box.large {
@@ -376,16 +405,18 @@ body {
 }
 
 .example-problem {
-    background: #fef3c7;
-    border: 1px solid #f59e0b;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 2px solid var(--warning-color);
     border-radius: var(--border-radius);
     padding: 1rem;
     margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .example-problem h4 {
     color: #92400e;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .solution-steps {
@@ -423,15 +454,17 @@ body {
 }
 
 .example-conclusion {
-    background: #d1fae5;
-    border: 1px solid var(--success-color);
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    border: 2px solid var(--success-color);
     border-radius: var(--border-radius);
     padding: 1rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .example-conclusion h4 {
     color: #065f46;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .results-grid {
@@ -445,14 +478,22 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
-    background: white;
+    background: var(--surface-color);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.result-item:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .result-item.highlight {
-    background: #fef3c7;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
     border-color: var(--warning-color);
+    box-shadow: var(--shadow-md);
 }
 
 .result-label {
@@ -519,9 +560,16 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0.75rem;
-    background: #f8fafc;
+    background: var(--surface-secondary);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.result-display:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .result-label {
@@ -540,6 +588,7 @@ body {
     border-radius: var(--border-radius-lg);
     padding: 2rem;
     margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
 }
 
 .definition-box h3 {
@@ -699,6 +748,7 @@ body {
     border-radius: var(--border-radius-lg);
     padding: 2rem;
     margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
 }
 
 .theorem-box h4 {
@@ -996,10 +1046,11 @@ body {
 
 /* Footer */
 .main-footer {
-    background: var(--text-primary);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-on-dark);
     padding: 2rem 0 1rem;
     margin-top: 3rem;
+    box-shadow: var(--shadow-colored);
 }
 
 .footer-content {
@@ -1011,7 +1062,8 @@ body {
 
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: var(--accent-color);
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
 .footer-section ul {
@@ -1024,20 +1076,21 @@ body {
 }
 
 .footer-section a {
-    color: white;
+    color: var(--text-on-dark);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .footer-section a:hover {
-    color: var(--accent-color);
+    color: var(--secondary-color);
+    transform: translateX(2px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 1rem;
-    border-top: 1px solid #374151;
-    color: #9ca3af;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(248, 250, 252, 0.8);
 }
 
 /* Responsive design */
