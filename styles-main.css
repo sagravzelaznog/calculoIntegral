@@ -103,6 +103,7 @@ html {
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -937,12 +938,21 @@ body {
         color: var(--text-secondary);
     }
 
-    .user-name {
+    .warning-text {
+        flex: 1;
         color: var(--text-primary);
     }
 
-    .nav-link {
-        color: var(--text-primary);
+    .warning-text a {
+        color: #856404;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    .warning-text a:hover {
+        color: var(--warning-color);
+        text-decoration: underline;
     }
 
     .nav-link:hover {

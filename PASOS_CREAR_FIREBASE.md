@@ -6,7 +6,7 @@
 
 ## **1. Crear la Cuenta y Acceder a Firebase Console**
 
-- Ir a https://console.firebase.google.com/
+- Ir a <https://console.firebase.google.com/>
 - Iniciar sesión con tu cuenta de Google
 - Si es tu primera vez, aceptar los términos y condiciones
 
@@ -66,7 +66,8 @@ const firebaseConfig = {
 - Activar el interruptor **Enable**
 - Guardar cambios
 
-### Opciones adicionales de autenticación:
+### Opciones adicionales de autenticación
+
 - Google
 - Facebook
 - GitHub
@@ -123,7 +124,7 @@ service cloud.firestore {
 - Nombre de la colección: `users`
 - ID del documento: `[ID del usuario]` (se creará automáticamente al registrar usuarios)
 
-### Estructura del documento de usuario:
+### Estructura del documento de usuario
 
 ```javascript
 {
@@ -180,7 +181,7 @@ export { auth, db, app };
 
 ### Paso 10.2: Incluir Firebase SDK en HTML
 
-**Opción A: Usar CDN (más simple)**
+**Opción A: Usar CDN (más simple)** 1
 
 ```html
 <!DOCTYPE html>
@@ -205,7 +206,7 @@ export { auth, db, app };
 </html>
 ```
 
-**Opción B: Usar npm (para proyectos con bundler)**
+**Opción B: Usar npm (para proyectos con bundler)** 2
 
 ```bash
 npm install firebase
@@ -344,18 +345,21 @@ Marca cada paso conforme lo completes:
 
 ## 🔧 **Recursos Adicionales**
 
-### Documentación Oficial:
-- **Firebase Docs:** https://firebase.google.com/docs
-- **Authentication:** https://firebase.google.com/docs/auth
-- **Firestore:** https://firebase.google.com/docs/firestore
+### Documentación Oficial
 
-### Tutoriales Recomendados:
-- Firebase Get Started (Web): https://firebase.google.com/docs/web/setup
-- Firestore Security Rules: https://firebase.google.com/docs/firestore/security/get-started
+- **Firebase Docs:** <https://firebase.google.com/docs>
+- **Authentication:** <https://firebase.google.com/docs/auth>
+- **Firestore:** <https://firebase.google.com/docs/firestore>
 
-### Consolas Importantes:
-- **Firebase Console:** https://console.firebase.google.com/
-- **Google Cloud Console:** https://console.cloud.google.com/
+### Tutoriales Recomendados
+
+- Firebase Get Started (Web): <https://firebase.google.com/docs/web/setup>
+- Firestore Security Rules: <https://firebase.google.com/docs/firestore/security/get-started>
+
+### Consolas Importantes
+
+- **Firebase Console:** <https://console.firebase.google.com/>
+- **Google Cloud Console:** <https://console.cloud.google.com/>
 
 ---
 
@@ -372,13 +376,15 @@ Marca cada paso conforme lo completes:
 
 ## 💰 **Planes de Firebase**
 
-### Spark Plan (Gratuito):
+### Spark Plan (Gratuito)
+
 - ✅ Authentication: Usuarios ilimitados
 - ✅ Firestore: 1 GB almacenamiento
 - ✅ Firestore: 50,000 lecturas/día
 - ✅ Firestore: 20,000 escrituras/día
 
-### Blaze Plan (Pago por uso):
+### Blaze Plan (Pago por uso)
+
 - Ideal para producción
 - Escala automáticamente
 - Paga solo por lo que usas
@@ -403,4 +409,3 @@ Marca cada paso conforme lo completes:
 
 **© JMGV-PTEL-2025 - Guía de Implementación Firebase**  
 *Este documento es de uso educativo.*
-

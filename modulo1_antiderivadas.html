@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 1: Antiderivadas e Integrales Indefinidas - Cálculo Integral</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -75,7 +75,7 @@
             <section class="progress-section">
                 <h3>Progreso del Módulo</h3>
                 <div class="progress-bar">
-                    <div class="progress-fill" id="module-progress" style="width: 0%"></div>
+                    <div class="progress-fill" id="module-progress"></div>
                 </div>
                 <div class="progress-stats">
                     <span id="progress-text">0% completado</span>
@@ -869,7 +869,7 @@
                     <h3><i class="fas fa-random"></i> Generador de Ejercicios</h3>
                     <div class="generator-controls">
                         <button id="generate-exercise" class="btn-primary">Generar Nuevo Ejercicio</button>
-                        <select id="difficulty-select">
+                        <select id="difficulty-select" aria-label="Seleccionar nivel de dificultad">
                             <option value="basic">Básico</option>
                             <option value="intermediate">Intermedio</option>
                             <option value="advanced">Avanzado</option>
@@ -900,7 +900,7 @@
 
                     <div class="quiz-progress">
                         <div class="progress-bar">
-                            <div class="progress-fill" id="quiz-progress" style="width: 0%"></div>
+                            <div class="progress-fill" id="quiz-progress" ></div>
                         </div>
                         <span id="quiz-progress-text">Pregunta 1 de 10</span>
                     </div>
@@ -922,11 +922,11 @@
                         <div class="quiz-navigation">
                             <button id="prev-question" class="nav-btn" disabled>Anterior</button>
                             <button id="next-question" class="nav-btn">Siguiente</button>
-                            <button id="submit-quiz" class="btn-primary" style="display: none;">Enviar Quiz</button>
+                            <button id="submit-quiz" class="btn-primary" >Enviar Quiz</button>
                         </div>
                     </div>
 
-                    <div class="quiz-results" id="quiz-results" style="display: none;">
+                    <div class="quiz-results" id="quiz-results" >
                         <h3>Resultados del Quiz</h3>
                         <div class="score-display">
                             <div class="score-circle">

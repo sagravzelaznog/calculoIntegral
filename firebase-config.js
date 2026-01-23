@@ -3,12 +3,13 @@
 
 const firebaseConfig = {
     // Reemplaza estos valores con los de tu proyecto Firebase
-    apiKey: "tu-api-key-aqui",
-    authDomain: "tu-proyecto.firebaseapp.com",
-    projectId: "tu-proyecto-id",
-    storageBucket: "tu-proyecto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "tu-app-id"
+    apiKey: "AIzaSyCWi_ko-0i-esAuNiO5EIQe-gThnQ1-iaM",
+    authDomain: "calculointegral-2601b.firebaseapp.com",
+    projectId: "calculointegral-2601b",
+    storageBucket: "calculointegral-2601b.firebasestorage.app",
+    messagingSenderId: "818910932073",
+    appId: "1:818910932073:web:b7e2e4bbd4033d250386f8",
+    measurementId: "G-BBH4XLGFM3"
 };
 
 // Inicializar Firebase

@@ -1,4 +1,5 @@
 # MÓDULO 3: TÉCNICAS DE INTEGRACIÓN
+
 ## Desarrollo Didáctico Detallado
 
 ---
@@ -6,16 +7,20 @@
 ## INTRODUCCIÓN AL MÓDULO
 
 ### 🎯 Objetivo General
+
 Dominar las técnicas avanzadas de integración para resolver integrales que no son inmediatas, desarrollando la capacidad de reconocer patrones y aplicar estrategias específicas según el tipo de función a integrar.
 
 ### 📚 Prerrequisitos
+
 - Dominio de integrales inmediatas (Módulo 1)
 - Conocimiento del Teorema Fundamental del Cálculo (Módulo 2)
 - Manejo de identidades trigonométricas
 - Álgebra básica y factorización
 
 ### 🧠 Metodología de Aprendizaje
+
 Este módulo utiliza un enfoque **progresivo** donde cada técnica se presenta con:
+
 1. **Fundamento teórico** claro y conciso
 2. **Ejemplos guiados** paso a paso
 3. **Ejercicios progresivos** de dificultad creciente
@@ -25,6 +30,7 @@ Este módulo utiliza un enfoque **progresivo** donde cada técnica se presenta c
 ---
 
 ## 3.1 INTEGRACIÓN POR SUSTITUCIÓN
+
 **Duración:** 4 horas
 
 ### 📖 Fundamentos Teóricos
@@ -51,15 +57,18 @@ $$\int [f(x)]^n \cdot f'(x) \, dx \quad \Rightarrow \quad u = f(x)$$
 ### 📝 Ejemplos Paso a Paso
 
 #### Ejemplo 1: Sustitución Básica
+
 **Problema:** $\int (2x + 3)^4 \cdot 2 \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar la función interna
+
 - Función interna: $g(x) = 2x + 3$
 - Derivada: $g'(x) = 2$
 
 **Paso 2:** Hacer la sustitución
+
 - Sea $u = 2x + 3$
 - Entonces $du = 2 \, dx$
 
@@ -77,11 +86,13 @@ $$\frac{u^5}{5} + C = \frac{(2x + 3)^5}{5} + C$$
 ---
 
 #### Ejemplo 2: Sustitución con Función Trigonométrica
+
 **Problema:** $\int \sin(3x) \cos(3x) \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar el patrón
+
 - Podemos usar $\sin(3x)$ como función interna
 - Su derivada es $3\cos(3x)$
 - Pero tenemos $\cos(3x)$, no $3\cos(3x)$
@@ -90,6 +101,7 @@ $$\frac{u^5}{5} + C = \frac{(2x + 3)^5}{5} + C$$
 $$\int \sin(3x) \cos(3x) \, dx = \frac{1}{3} \int \sin(3x) \cdot 3\cos(3x) \, dx$$
 
 **Paso 3:** Hacer la sustitución
+
 - Sea $u = \sin(3x)$
 - Entonces $du = 3\cos(3x) \, dx$
 
@@ -102,11 +114,13 @@ $$\frac{u^2}{6} + C = \frac{\sin^2(3x)}{6} + C$$
 ---
 
 #### Ejemplo 3: Sustitución con Función Exponencial
+
 **Problema:** $\int x e^{x^2} \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar la función interna
+
 - Función interna: $g(x) = x^2$
 - Derivada: $g'(x) = 2x$
 - Tenemos $x$, necesitamos $2x$
@@ -115,6 +129,7 @@ $$\frac{u^2}{6} + C = \frac{\sin^2(3x)}{6} + C$$
 $$\int x e^{x^2} \, dx = \frac{1}{2} \int e^{x^2} \cdot 2x \, dx$$
 
 **Paso 3:** Hacer la sustitución
+
 - Sea $u = x^2$
 - Entonces $du = 2x \, dx$
 
@@ -131,22 +146,27 @@ $$\frac{1}{2} e^u + C = \frac{1}{2} e^{x^2} + C$$
 Cuando trabajamos con integrales definidas, tenemos **dos opciones**:
 
 #### Opción 1: Cambiar los límites de integración
+
 $$\int_a^b f(g(x)) \cdot g'(x) \, dx = \int_{g(a)}^{g(b)} f(u) \, du$$
 
 #### Opción 2: Sustituir de vuelta y usar límites originales
+
 $$\int_a^b f(g(x)) \cdot g'(x) \, dx = \left[ F(g(x)) \right]_a^b$$
 
 #### Ejemplo: Integral Definida
+
 **Problema:** $\int_0^1 x(1 + x^2)^3 \, dx$
 
 **Solución usando cambio de límites:**
 
 **Paso 1:** Identificar la sustitución
+
 - Sea $u = 1 + x^2$
 - Entonces $du = 2x \, dx$
 - Por tanto $x \, dx = \frac{du}{2}$
 
 **Paso 2:** Cambiar límites
+
 - Cuando $x = 0$: $u = 1 + 0^2 = 1$
 - Cuando $x = 1$: $u = 1 + 1^2 = 2$
 
@@ -164,19 +184,22 @@ $$\frac{1}{2} \left[ \frac{u^4}{4} \right]_1^2 = \frac{1}{2} \left( \frac{16}{4}
 ### 🎯 Ejercicios Prácticos Progresivos
 
 #### Nivel Básico
+
 1. $\int (3x + 2)^5 \, dx$
 2. $\int \cos(2x) \, dx$
 3. $\int e^{4x} \, dx$
 4. $\int \frac{1}{2x + 1} \, dx$
 
 #### Nivel Intermedio
-5. $\int x^2(x^3 + 1)^4 \, dx$
+
+5.$\int x^2(x^3 + 1)^4 \, dx$
 6. $\int \sin(x) \cos^2(x) \, dx$
 7. $\int \frac{x}{\sqrt{x^2 + 4}} \, dx$
 8. $\int \frac{e^x}{1 + e^x} \, dx$
 
 #### Nivel Avanzado
-9. $\int \frac{x^3}{\sqrt{x^4 + 9}} \, dx$
+
+9.$\int \frac{x^3}{\sqrt{x^4 + 9}} \, dx$
 10. $\int \sin^3(x) \cos(x) \, dx$
 11. $\int \frac{\ln(x)}{x} \, dx$
 12. $\int \frac{x^2 + 1}{x^3 + 3x + 1} \, dx$
@@ -184,6 +207,7 @@ $$\frac{1}{2} \left[ \frac{u^4}{4} \right]_1^2 = \frac{1}{2} \left( \frac{16}{4}
 ---
 
 ## 3.2 INTEGRACIÓN DE FUNCIONES TRIGONOMÉTRICAS
+
 **Duración:** 4 horas
 
 ### 📖 Identidades Trigonométricas Esenciales
@@ -191,6 +215,7 @@ $$\frac{1}{2} \left[ \frac{u^4}{4} \right]_1^2 = \frac{1}{2} \left( \frac{16}{4}
 Antes de integrar funciones trigonométricas, necesitamos dominar estas identidades:
 
 #### Identidades Fundamentales
+
 1. **Pitagóricas:**
    - $\sin^2(x) + \cos^2(x) = 1$
    - $\tan^2(x) + 1 = \sec^2(x)$
@@ -208,6 +233,7 @@ Antes de integrar funciones trigonométricas, necesitamos dominar estas identida
 ### 🔢 Integración de Potencias de Seno y Coseno
 
 #### Caso 1: Potencias Impares
+
 Cuando tenemos potencias impares, usamos identidades para reducir el grado.
 
 **Ejemplo:** $\int \sin^3(x) \, dx$
@@ -224,6 +250,7 @@ $$\sin^2(x) = 1 - \cos^2(x)$$
 $$\int \sin^3(x) \, dx = \int (1 - \cos^2(x)) \sin(x) \, dx$$
 
 **Paso 4:** Hacer sustitución
+
 - Sea $u = \cos(x)$
 - Entonces $du = -\sin(x) \, dx$
 - Por tanto $\sin(x) \, dx = -du$
@@ -237,6 +264,7 @@ $$-\left(\cos(x) - \frac{\cos^3(x)}{3}\right) + C = -\cos(x) + \frac{\cos^3(x)}{
 ---
 
 #### Caso 2: Potencias Pares
+
 Para potencias pares, usamos las identidades de reducción de potencia.
 
 **Ejemplo:** $\int \sin^2(x) \, dx$
@@ -258,6 +286,7 @@ $$= \frac{1}{2} \left( x - \frac{\sin(2x)}{2} \right) + C = \frac{x}{2} - \frac{
 ---
 
 #### Caso 3: Productos de Seno y Coseno
+
 **Ejemplo:** $\int \sin^3(x) \cos^2(x) \, dx$
 
 **Solución paso a paso:**
@@ -272,6 +301,7 @@ $$\sin^2(x) = 1 - \cos^2(x)$$
 $$\int (1 - \cos^2(x)) \cos^2(x) \sin(x) \, dx$$
 
 **Paso 4:** Hacer sustitución
+
 - Sea $u = \cos(x)$
 - Entonces $du = -\sin(x) \, dx$
 
@@ -286,16 +316,19 @@ $$-\left(\frac{\cos^3(x)}{3} - \frac{\cos^5(x)}{5}\right) + C = \frac{\cos^5(x)}
 ### 🔢 Integración de Potencias de Tangente y Secante
 
 #### Caso 1: Potencias Impares de Secante
+
 **Ejemplo:** $\int \sec^3(x) \, dx$
 
 Esta integral requiere integración por partes (ver sección 3.3).
 
 #### Caso 2: Potencias Pares de Secante
+
 **Ejemplo:** $\int \sec^2(x) \tan(x) \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar la sustitución
+
 - Sea $u = \tan(x)$
 - Entonces $du = \sec^2(x) \, dx$
 
@@ -307,22 +340,25 @@ $$\frac{u^2}{2} + C = \frac{\tan^2(x)}{2} + C$$
 
 ---
 
-### 🎯 Ejercicios Prácticos Progresivos
+### 🎯 Ejercicios Prácticos Progresivos v
 
-#### Nivel Básico
+#### Nivel Básico 1
+
 1. $\int \sin^2(x) \, dx$
 2. $\int \cos^2(x) \, dx$
 3. $\int \sin(x) \cos(x) \, dx$
 4. $\int \sec^2(x) \tan(x) \, dx$
 
-#### Nivel Intermedio
-5. $\int \sin^3(x) \, dx$
+#### Nivel Intermedio 2
+
+5.$\int \sin^3(x) \, dx$
 6. $\int \cos^3(x) \, dx$
 7. $\int \sin^2(x) \cos(x) \, dx$
 8. $\int \sin(x) \cos^3(x) \, dx$
 
-#### Nivel Avanzado
-9. $\int \sin^4(x) \, dx$
+#### Nivel Avanzado 3
+
+9.$\int \sin^4(x) \, dx$
 10. $\int \cos^4(x) \, dx$
 11. $\int \sin^3(x) \cos^2(x) \, dx$
 12. $\int \sec^3(x) \tan(x) \, dx$
@@ -330,6 +366,7 @@ $$\frac{u^2}{2} + C = \frac{\tan^2(x)}{2} + C$$
 ---
 
 ## 3.3 INTEGRACIÓN POR PARTES
+
 **Duración:** 4 horas
 
 ### 📖 Fórmula Fundamental
@@ -357,19 +394,22 @@ $$\int u \, dv = uv - \int v \, du$$
 
 **Regla:** La función que aparece primero en ILATE debe ser $u$, la otra será $dv$.
 
-### 📝 Ejemplos Paso a Paso
+### 📝 Ejemplos Paso a Paso 1
 
 #### Ejemplo 1: Producto de Polinomio y Exponencial
+
 **Problema:** $\int x e^x \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar u y dv usando ILATE
+
 - Algebraica: $x$ (A)
 - Exponencial: $e^x$ (E)
 - Como A viene antes que E, elegimos $u = x$
 
 **Paso 2:** Definir u y dv
+
 - $u = x$ → $du = dx$
 - $dv = e^x \, dx$ → $v = e^x$
 
@@ -384,16 +424,19 @@ $$= x e^x - e^x + C = e^x(x - 1) + C$$
 ---
 
 #### Ejemplo 2: Producto de Polinomio y Trigonométrica
+
 **Problema:** $\int x \sin(x) \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar u y dv usando ILATE
+
 - Algebraica: $x$ (A)
 - Trigonométrica: $\sin(x)$ (T)
 - Como A viene antes que T, elegimos $u = x$
 
 **Paso 2:** Definir u y dv
+
 - $u = x$ → $du = dx$
 - $dv = \sin(x) \, dx$ → $v = -\cos(x)$
 
@@ -406,16 +449,19 @@ $$= -x \cos(x) + \int \cos(x) \, dx = -x \cos(x) + \sin(x) + C$$
 ---
 
 #### Ejemplo 3: Producto de Logarítmica y Algebraica
+
 **Problema:** $\int x \ln(x) \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar u y dv usando ILATE
+
 - Logarítmica: $\ln(x)$ (L)
 - Algebraica: $x$ (A)
 - Como L viene antes que A, elegimos $u = \ln(x)$
 
 **Paso 2:** Definir u y dv
+
 - $u = \ln(x)$ → $du = \frac{1}{x} \, dx$
 - $dv = x \, dx$ → $v = \frac{x^2}{2}$
 
@@ -432,17 +478,20 @@ $$= \frac{x^2 \ln(x)}{2} - \int \frac{x}{2} \, dx = \frac{x^2 \ln(x)}{2} - \frac
 Cuando una aplicación de integración por partes no resuelve completamente la integral, necesitamos aplicarla repetidamente.
 
 #### Ejemplo: Potencia de x por Exponencial
+
 **Problema:** $\int x^2 e^x \, dx$
 
 **Solución paso a paso:**
 
 **Primera aplicación:**
+
 - $u = x^2$ → $du = 2x \, dx$
 - $dv = e^x \, dx$ → $v = e^x$
 
 $$\int x^2 e^x \, dx = x^2 e^x - \int e^x \cdot 2x \, dx = x^2 e^x - 2 \int x e^x \, dx$$
 
 **Segunda aplicación (para $\int x e^x \, dx$):**
+
 - $u = x$ → $du = dx$
 - $dv = e^x \, dx$ → $v = e^x$
 
@@ -458,6 +507,7 @@ $$\int x^2 e^x \, dx = x^2 e^x - 2(x e^x - e^x) + C = e^x(x^2 - 2x + 2) + C$$
 Para integrales de la forma $\int x^n f(x) \, dx$ donde $f(x)$ es una función que se integra fácilmente (como $e^x$, $\sin(x)$, $\cos(x)$), podemos usar el **método tabular**:
 
 #### Ejemplo: Método Tabular
+
 **Problema:** $\int x^3 e^x \, dx$
 
 **Solución usando tabla:**
@@ -475,22 +525,25 @@ $$\int x^3 e^x \, dx = x^3 e^x - 3x^2 e^x + 6x e^x - 6 e^x + C = e^x(x^3 - 3x^2 
 
 ---
 
-### 🎯 Ejercicios Prácticos Progresivos
+### 🎯 Ejercicios Prácticos Progresivos 📚
 
-#### Nivel Básico
+#### Nivel Básico 2
+
 1. $\int x e^x \, dx$
 2. $\int x \sin(x) \, dx$
 3. $\int x \cos(x) \, dx$
 4. $\int x \ln(x) \, dx$
 
-#### Nivel Intermedio
-5. $\int x^2 e^x \, dx$
+#### Nivel Intermedio 3
+
+5.$\int x^2 e^x \, dx$
 6. $\int x^2 \sin(x) \, dx$
 7. $\int x \ln^2(x) \, dx$
 8. $\int e^x \sin(x) \, dx$
 
-#### Nivel Avanzado
-9. $\int x^3 e^x \, dx$
+#### Nivel Avanzado 4
+
+9.$\int x^3 e^x \, dx$
 10. $\int x^2 \ln(x) \, dx$
 11. $\int \ln(x) \, dx$
 12. $\int x^2 e^{2x} \, dx$
@@ -498,6 +551,7 @@ $$\int x^3 e^x \, dx = x^3 e^x - 3x^2 e^x + 6x e^x - 6 e^x + C = e^x(x^3 - 3x^2 
 ---
 
 ## 3.4 MÉTODOS ESPECIALES DE INTEGRACIÓN
+
 **Duración:** 4 horas
 
 ### 🔢 Fracciones Parciales
@@ -505,6 +559,7 @@ $$\int x^3 e^x \, dx = x^3 e^x - 3x^2 e^x + 6x e^x - 6 e^x + C = e^x(x^3 - 3x^2 
 Las **fracciones parciales** nos permiten descomponer funciones racionales complejas en fracciones más simples que son fáciles de integrar.
 
 #### Caso 1: Factores Lineales Distintos
+
 **Problema:** $\int \frac{x + 1}{(x - 1)(x + 2)} \, dx$
 
 **Solución paso a paso:**
@@ -516,6 +571,7 @@ $$\frac{x + 1}{(x - 1)(x + 2)} = \frac{A}{x - 1} + \frac{B}{x + 2}$$
 $$x + 1 = A(x + 2) + B(x - 1)$$
 
 **Paso 3:** Resolver para A y B
+
 - Para $x = 1$: $1 + 1 = A(1 + 2) + B(1 - 1)$ → $2 = 3A$ → $A = \frac{2}{3}$
 - Para $x = -2$: $-2 + 1 = A(-2 + 2) + B(-2 - 1)$ → $-1 = -3B$ → $B = \frac{1}{3}$
 
@@ -528,6 +584,7 @@ $$= \frac{2}{3} \ln|x - 1| + \frac{1}{3} \ln|x + 2| + C$$
 ---
 
 #### Caso 2: Factores Cuadráticos
+
 **Problema:** $\int \frac{x^2 + 1}{x(x^2 + 4)} \, dx$
 
 **Solución paso a paso:**
@@ -539,6 +596,7 @@ $$\frac{x^2 + 1}{x(x^2 + 4)} = \frac{A}{x} + \frac{Bx + C}{x^2 + 4}$$
 $$x^2 + 1 = A(x^2 + 4) + (Bx + C)x$$
 
 **Paso 3:** Resolver para A, B y C
+
 - Para $x = 0$: $0 + 1 = A(0 + 4) + 0$ → $1 = 4A$ → $A = \frac{1}{4}$
 - Comparando coeficientes: $x^2 + 1 = Ax^2 + 4A + Bx^2 + Cx$
 - Coeficiente de $x^2$: $1 = A + B$ → $B = 1 - \frac{1}{4} = \frac{3}{4}$
@@ -557,15 +615,18 @@ $$= \frac{1}{4} \ln|x| + \frac{3}{8} \ln(x^2 + 4) + C$$
 Las **sustituciones trigonométricas** son útiles para integrales que contienen expresiones de la forma $\sqrt{a^2 - x^2}$, $\sqrt{a^2 + x^2}$, o $\sqrt{x^2 - a^2}$.
 
 #### Caso 1: $\sqrt{a^2 - x^2}$
+
 **Problema:** $\int \frac{1}{\sqrt{9 - x^2}} \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar el caso
+
 - Tenemos $\sqrt{9 - x^2} = \sqrt{3^2 - x^2}$
 - Usamos la sustitución: $x = 3\sin(\theta)$
 
 **Paso 2:** Hacer la sustitución
+
 - $x = 3\sin(\theta)$
 - $dx = 3\cos(\theta) \, d\theta$
 - $\sqrt{9 - x^2} = \sqrt{9 - 9\sin^2(\theta)} = 3\cos(\theta)$
@@ -577,21 +638,25 @@ $$\int \frac{1}{\sqrt{9 - x^2}} \, dx = \int \frac{1}{3\cos(\theta)} \cdot 3\cos
 $$= \theta + C$$
 
 **Paso 5:** Sustituir de vuelta
+
 - Como $x = 3\sin(\theta)$, tenemos $\theta = \arcsin\left(\frac{x}{3}\right)$
 - Por tanto: $\theta + C = \arcsin\left(\frac{x}{3}\right) + C$
 
 ---
 
 #### Caso 2: $\sqrt{a^2 + x^2}$
+
 **Problema:** $\int \frac{1}{\sqrt{x^2 + 4}} \, dx$
 
 **Solución paso a paso:**
 
 **Paso 1:** Identificar el caso
+
 - Tenemos $\sqrt{x^2 + 4} = \sqrt{x^2 + 2^2}$
 - Usamos la sustitución: $x = 2\tan(\theta)$
 
 **Paso 2:** Hacer la sustitución
+
 - $x = 2\tan(\theta)$
 - $dx = 2\sec^2(\theta) \, d\theta$
 - $\sqrt{x^2 + 4} = \sqrt{4\tan^2(\theta) + 4} = 2\sec(\theta)$
@@ -603,6 +668,7 @@ $$\int \frac{1}{\sqrt{x^2 + 4}} \, dx = \int \frac{1}{2\sec(\theta)} \cdot 2\sec
 $$= \ln|\sec(\theta) + \tan(\theta)| + C$$
 
 **Paso 5:** Sustituir de vuelta
+
 - Como $x = 2\tan(\theta)$, tenemos $\tan(\theta) = \frac{x}{2}$
 - Y $\sec(\theta) = \frac{\sqrt{x^2 + 4}}{2}$
 - Por tanto: $\ln\left|\frac{\sqrt{x^2 + 4}}{2} + \frac{x}{2}\right| + C = \ln\left|\sqrt{x^2 + 4} + x\right| + C$
@@ -624,6 +690,7 @@ $$x^2 + 4x + 5 = (x^2 + 4x + 4) + 1 = (x + 2)^2 + 1$$
 $$\int \frac{1}{x^2 + 4x + 5} \, dx = \int \frac{1}{(x + 2)^2 + 1} \, dx$$
 
 **Paso 3:** Hacer sustitución
+
 - Sea $u = x + 2$
 - Entonces $du = dx$
 
@@ -635,22 +702,25 @@ $$\arctan(u) + C = \arctan(x + 2) + C$$
 
 ---
 
-### 🎯 Ejercicios Prácticos Progresivos
+### 🎯 Ejercicios Prácticos Progresivos 📚 1
 
-#### Fracciones Parciales
+- Fracciones Parciales
+
 1. $\int \frac{1}{(x - 1)(x + 1)} \, dx$
 2. $\int \frac{x}{(x - 2)(x + 3)} \, dx$
 3. $\int \frac{x^2 + 1}{x(x - 1)} \, dx$
 4. $\int \frac{1}{x^2 - 4} \, dx$
 
-#### Sustituciones Trigonométricas
-5. $\int \frac{1}{\sqrt{16 - x^2}} \, dx$
+- Sustituciones Trigonométricas
+
+5.$\int \frac{1}{\sqrt{16 - x^2}} \, dx$
 6. $\int \frac{1}{\sqrt{x^2 + 9}} \, dx$
 7. $\int \frac{x^2}{\sqrt{4 - x^2}} \, dx$
 8. $\int \frac{1}{x\sqrt{x^2 - 1}} \, dx$
 
-#### Completar el Cuadrado
-9. $\int \frac{1}{x^2 + 2x + 2} \, dx$
+- Completar el Cuadrado
+
+9.$\int \frac{1}{x^2 + 2x + 2} \, dx$
 10. $\int \frac{1}{x^2 - 6x + 10} \, dx$
 11. $\int \frac{x}{x^2 + 4x + 5} \, dx$
 12. $\int \frac{1}{2x^2 + 8x + 10} \, dx$
@@ -661,7 +731,7 @@ $$\arctan(u) + C = \arctan(x + 2) + C$$
 
 ### 📋 Diagrama de Flujo para Elegir Técnica
 
-```
+``` tree
 ¿Es una integral inmediata?
 ├─ SÍ → Usar tabla de integrales básicas
 └─ NO → Continuar...
@@ -690,6 +760,7 @@ $$\arctan(u) + C = \arctan(x + 2) + C$$
 ### 🎯 Casos Especiales y Trucos
 
 #### Truco 1: Multiplicar por 1
+
 **Problema:** $\int \frac{1}{1 + \sin(x)} \, dx$
 
 **Solución:** Multiplicar numerador y denominador por $1 - \sin(x)$:
@@ -697,6 +768,7 @@ $$\int \frac{1}{1 + \sin(x)} \, dx = \int \frac{1 - \sin(x)}{(1 + \sin(x))(1 - \
 $$= \int \frac{1 - \sin(x)}{\cos^2(x)} \, dx = \int (\sec^2(x) - \sec(x)\tan(x)) \, dx = \tan(x) - \sec(x) + C$$
 
 #### Truco 2: Sumar y Restar
+
 **Problema:** $\int \frac{x^2}{x^2 + 1} \, dx$
 
 **Solución:** Sumar y restar 1 en el numerador:
@@ -709,24 +781,28 @@ $$\int \frac{x^2}{x^2 + 1} \, dx = \int \frac{x^2 + 1 - 1}{x^2 + 1} \, dx = \int
 ### 🎯 Criterios de Evaluación por Técnica
 
 #### Integración por Sustitución (25%)
+
 - **Reconocimiento de patrones:** 40%
 - **Aplicación correcta de la sustitución:** 30%
 - **Cálculo algebraico:** 20%
 - **Verificación de resultados:** 10%
 
 #### Integración de Funciones Trigonométricas (25%)
+
 - **Uso correcto de identidades:** 35%
 - **Estrategia de integración:** 30%
 - **Manejo de potencias:** 20%
 - **Simplificación final:** 15%
 
 #### Integración por Partes (25%)
+
 - **Elección correcta de u y dv:** 40%
 - **Aplicación de la fórmula:** 30%
 - **Integración repetida:** 20%
 - **Simplificación:** 10%
 
 #### Métodos Especiales (25%)
+
 - **Identificación del método apropiado:** 30%
 - **Descomposición correcta:** 30%
 - **Sustituciones apropiadas:** 25%
@@ -746,7 +822,9 @@ $$\int \frac{x^2}{x^2 + 1} \, dx = \int \frac{x^2 + 1 - 1}{x^2 + 1} \, dx = \int
 ## 🎓 PROYECTO INTEGRADOR: TABLA PERSONALIZADA DE INTEGRALES
 
 ### 📋 Objetivo del Proyecto
+
 Crear una tabla personalizada de integrales resueltas que incluya:
+
 - 20 integrales por cada técnica estudiada
 - Solución paso a paso detallada
 - Verificación de cada resultado
@@ -756,24 +834,28 @@ Crear una tabla personalizada de integrales resueltas que incluya:
 ### 📝 Estructura del Proyecto
 
 #### Sección 1: Integrales por Sustitución (20 ejemplos)
+
 - 5 integrales básicas
 - 5 integrales intermedias
 - 5 integrales avanzadas
 - 5 integrales definidas
 
 #### Sección 2: Integrales Trigonométricas (20 ejemplos)
+
 - 5 potencias de seno/coseno
 - 5 potencias de tangente/secante
 - 5 productos trigonométricos
 - 5 casos especiales
 
 #### Sección 3: Integrales por Partes (20 ejemplos)
+
 - 5 aplicaciones simples
 - 5 aplicaciones repetidas
 - 5 casos especiales
 - 5 integrales tabulares
 
 #### Sección 4: Métodos Especiales (20 ejemplos)
+
 - 5 fracciones parciales
 - 5 sustituciones trigonométricas
 - 5 completar el cuadrado
@@ -792,12 +874,14 @@ Crear una tabla personalizada de integrales resueltas que incluya:
 ## 🚀 COMPETENCIA DE INTEGRACIÓN
 
 ### ⏱️ Formato de Competencia
+
 - **Duración:** 30 minutos
 - **Problemas:** 15 integrales de diferentes técnicas
 - **Puntuación:** 2 puntos por integral correcta
 - **Penalización:** -0.5 puntos por intento incorrecto
 
 ### 🏆 Categorías de Premios
+
 - **Campeón General:** Mayor puntuación total
 - **Especialista en Sustitución:** Mejor en integrales por sustitución
 - **Maestro Trigonométrico:** Mejor en integrales trigonométricas
@@ -805,6 +889,7 @@ Crear una tabla personalizada de integrales resueltas que incluya:
 - **Genio de Métodos Especiales:** Mejor en técnicas especiales
 
 ### 📊 Preparación para la Competencia
+
 1. **Semana 1:** Practicar reconocimiento de patrones
 2. **Semana 2:** Ejercicios de velocidad con sustitución
 3. **Semana 3:** Dominar integración por partes
@@ -815,17 +900,20 @@ Crear una tabla personalizada de integrales resueltas que incluya:
 ## 📚 RECURSOS ADICIONALES
 
 ### 🔗 Enlaces Útiles
-- **Khan Academy - Integration Techniques:** https://www.khanacademy.org/math/integral-calculus/integration-techniques
-- **Paul's Online Math Notes:** https://tutorial.math.lamar.edu/Classes/CalcII/CalcII.aspx
-- **Wolfram Alpha Integral Calculator:** https://www.wolframalpha.com/calculators/integral-calculator/
+
+- **Khan Academy - Integration Techniques:** <https://www.khanacademy.org/math/integral-calculus/integration-techniques>
+- **Paul's Online Math Notes:** <https://tutorial.math.lamar.edu/Classes/CalcII/CalcII.aspx>
+- **Wolfram Alpha Integral Calculator:** <https://www.wolframalpha.com/calculators/integral-calculator/>
 
 ### 📱 Apps Recomendadas
+
 - **Symbolab:** Calculadora paso a paso
 - **Photomath:** Reconocimiento de problemas escritos
 - **GeoGebra:** Visualización de integrales
 - **Wolfram Alpha:** Verificación de resultados
 
 ### 📖 Libros Complementarios
+
 - **Stewart, James:** Cálculo de una Variable (Capítulos 7-8)
 - **Larson, Ron:** Cálculo Esencial (Capítulos 5-6)
 - **Thomas, George:** Cálculo: Una Variable (Capítulos 7-8)
@@ -837,6 +925,7 @@ Crear una tabla personalizada de integrales resueltas que incluya:
 Al finalizar este módulo, el estudiante será capaz de:
 
 ### Conocimientos
+
 - ✅ Identificar cuándo usar cada técnica de integración
 - ✅ Aplicar correctamente la integración por sustitución
 - ✅ Manejar integrales trigonométricas usando identidades
@@ -845,6 +934,7 @@ Al finalizar este módulo, el estudiante será capaz de:
 - ✅ Aplicar sustituciones trigonométricas apropiadas
 
 ### Habilidades
+
 - ✅ Reconocer patrones en integrales complejas
 - ✅ Elegir la técnica más eficiente para cada caso
 - ✅ Verificar resultados mediante derivación
@@ -853,6 +943,7 @@ Al finalizar este módulo, el estudiante será capaz de:
 - ✅ Resolver problemas de aplicación usando técnicas avanzadas
 
 ### Actitudes
+
 - ✅ Perseverancia en la resolución de problemas complejos
 - ✅ Rigor matemático en procedimientos y verificaciones
 - ✅ Confianza en el uso de diferentes técnicas
@@ -864,24 +955,28 @@ Al finalizar este módulo, el estudiante será capaz de:
 ## 📈 INDICADORES DE PROGRESO
 
 ### Semana 1: Integración por Sustitución
+
 - [ ] Reconoce patrones de sustitución en 80% de los casos
 - [ ] Aplica correctamente la sustitución en integrales básicas
 - [ ] Maneja integrales definidas con cambio de límites
 - [ ] Verifica resultados mediante derivación
 
 ### Semana 2: Funciones Trigonométricas
+
 - [ ] Usa identidades trigonométricas apropiadamente
 - [ ] Resuelve integrales de potencias de seno y coseno
 - [ ] Maneja productos de funciones trigonométricas
 - [ ] Aplica técnicas de reducción de potencia
 
 ### Semana 3: Integración por Partes
+
 - [ ] Aplica correctamente el método ILATE
 - [ ] Resuelve integrales que requieren partes repetidas
 - [ ] Usa el método tabular eficientemente
 - [ ] Maneja casos especiales y trucos algebraicos
 
 ### Semana 4: Métodos Especiales
+
 - [ ] Descompone funciones racionales en fracciones parciales
 - [ ] Aplica sustituciones trigonométricas apropiadas
 - [ ] Completa el cuadrado en expresiones cuadráticas
@@ -894,14 +989,18 @@ Al finalizar este módulo, el estudiante será capaz de:
 El Módulo 3 de Técnicas de Integración representa el corazón del cálculo integral. Dominar estas técnicas no solo es esencial para resolver problemas matemáticos complejos, sino que también desarrolla habilidades de pensamiento analítico y resolución de problemas que serán valiosas en estudios superiores y carreras profesionales.
 
 ### 🌟 Logros Esperados
+
 Al completar este módulo, los estudiantes habrán desarrollado:
+
 - **Fluidez técnica** en las principales técnicas de integración
 - **Intuición matemática** para reconocer patrones y elegir estrategias
 - **Confianza** para abordar integrales complejas
 - **Base sólida** para aplicaciones avanzadas en el Módulo 4
 
 ### 🚀 Preparación para el Siguiente Módulo
+
 Las técnicas aprendidas en este módulo serán fundamentales para:
+
 - Calcular áreas y volúmenes (Módulo 4)
 - Resolver problemas de física y ingeniería
 - Aplicar el cálculo integral en contextos reales
