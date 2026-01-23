@@ -163,61 +163,61 @@ class Modulo1Manager {
         const exercises = {
             basic: [
                 {
-                    problem: 'Evalúa $\\int 3x^2 \\, dx$',
-                    solution: '$x^3 + C$',
+                    problem: 'Evalúa $$\\int 3x^2 \\, dx$$',
+                    solution: '$$x^3 + C$$',
                     steps: [
-                        'Aplicar la regla de la potencia: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$',
-                        '$\\int 3x^2 \\, dx = 3 \\cdot \\frac{x^3}{3} + C$',
-                        'Simplificar: $x^3 + C$'
+                        'Aplicar la regla de la potencia: $$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$$',
+                        '$$\\int 3x^2 \\, dx = 3 \\cdot \\frac{x^3}{3} + C$$',
+                        'Simplificar: $$x^3 + C$$'
                     ]
                 },
                 {
-                    problem: 'Evalúa $\\int (2x + 1) \\, dx$',
-                    solution: '$x^2 + x + C$',
+                    problem: 'Evalúa $$\\int (2x + 1) \\, dx$$',
+                    solution: '$$x^2 + x + C$$',
                     steps: [
-                        'Separar términos: $\\int 2x \\, dx + \\int 1 \\, dx$',
-                        'Aplicar reglas: $2 \\cdot \\frac{x^2}{2} + x + C$',
-                        'Simplificar: $x^2 + x + C$'
+                        'Separar términos: $$\\int 2x \\, dx + \\int 1 \\, dx$$',
+                        'Aplicar reglas: $$2 \\cdot \\frac{x^2}{2} + x + C$$',
+                        'Simplificar: $$x^2 + x + C$$'
                     ]
                 }
             ],
             intermediate: [
                 {
-                    problem: 'Evalúa $\\int (x^2 - 3x + 2) \\, dx$',
-                    solution: '$\\frac{x^3}{3} - \\frac{3x^2}{2} + 2x + C$',
+                    problem: 'Evalúa $$\\int (x^2 - 3x + 2) \\, dx$$',
+                    solution: '$$\\frac{x^3}{3} - \\frac{3x^2}{2} + 2x + C$$',
                     steps: [
-                        'Separar términos: $\\int x^2 \\, dx - 3\\int x \\, dx + 2\\int 1 \\, dx$',
-                        'Aplicar regla de la potencia: $\\frac{x^3}{3} - 3 \\cdot \\frac{x^2}{2} + 2x + C$',
-                        'Simplificar: $\\frac{x^3}{3} - \\frac{3x^2}{2} + 2x + C$'
+                        'Separar términos: $$\\int x^2 \\, dx - 3\\int x \\, dx + 2\\int 1 \\, dx$$',
+                        'Aplicar regla de la potencia: $$\\frac{x^3}{3} - 3 \\cdot \\frac{x^2}{2} + 2x + C$$',
+                        'Simplificar: $$\\frac{x^3}{3} - \\frac{3x^2}{2} + 2x + C$$'
                     ]
                 },
                 {
-                    problem: 'Evalúa $\\int \\frac{x^3 + 2x}{x} \\, dx$',
-                    solution: '$\\frac{x^3}{3} + 2\\ln|x| + C$',
+                    problem: 'Evalúa $$\\int \\frac{x^3 + 2x}{x} \\, dx$$',
+                    solution: '$$\\frac{x^3}{3} + 2\\ln|x| + C$$',
                     steps: [
-                        'Dividir término por término: $\\frac{x^3}{x} + \\frac{2x}{x} = x^2 + 2$',
-                        'Integrar: $\\int x^2 \\, dx + \\int 2 \\, dx$',
-                        'Aplicar reglas: $\\frac{x^3}{3} + 2x + C$'
+                        'Dividir término por término: $$\\frac{x^3}{x} + \\frac{2x}{x} = x^2 + 2$$',
+                        'Integrar: $$\\int x^2 \\, dx + \\int 2 \\, dx$$',
+                        'Aplicar reglas: $$\\frac{x^3}{3} + 2x + C$$'
                     ]
                 }
             ],
             advanced: [
                 {
-                    problem: 'Evalúa $\\int (x + 1)^3 \\, dx$',
-                    solution: '$\\frac{x^4}{4} + x^3 + \\frac{3x^2}{2} + x + C$',
+                    problem: 'Evalúa $$\\int (x + 1)^3 \\, dx$$',
+                    solution: '$$\\frac{x^4}{4} + x^3 + \\frac{3x^2}{2} + x + C$$',
                     steps: [
-                        'Expandir: $(x + 1)^3 = x^3 + 3x^2 + 3x + 1$',
+                        'Expandir: $$(x + 1)^3 = x^3 + 3x^2 + 3x + 1$$',
                         'Integrar término por término',
                         'Aplicar regla de la potencia a cada término'
                     ]
                 },
                 {
-                    problem: 'Evalúa $\\int \\sin^2 x \\, dx$',
-                    solution: '$\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$',
+                    problem: 'Evalúa $$\\int \\sin^2 x \\, dx$$',
+                    solution: '$$\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$$',
                     steps: [
-                        'Usar identidad: $\\sin^2 x = \\frac{1 - \\cos(2x)}{2}$',
-                        'Separar términos: $\\frac{1}{2}\\int 1 \\, dx - \\frac{1}{2}\\int \\cos(2x) \\, dx$',
-                        'Integrar: $\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$'
+                        'Usar identidad: $$\\sin^2 x = \\frac{1 - \\cos(2x)}{2}$$',
+                        'Separar términos: $$\\frac{1}{2}\\int 1 \\, dx - \\frac{1}{2}\\int \\cos(2x) \\, dx$$',
+                        'Integrar: $$\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$$'
                     ]
                 }
             ]
@@ -235,21 +235,21 @@ class Modulo1Manager {
             <div class="generated-exercise">
                 <h4>Ejercicio Generado</h4>
                 <div class="problem-statement">
-                    <p><strong>Problema:</strong> ${exercise.problem}</p>
+                    <p><strong>Problema:</strong> $${exercise.problem}</p>
                 </div>
                 <div class="solution-toggle">
                     <button class="toggle-btn">Ver Solución</button>
                     <div class="solution hidden">
                         <div class="solution-steps">
-                            ${exercise.steps.map((step, index) => `
+                            $${exercise.steps.map((step, index) => `
                                 <div class="step">
-                                    <h5>Paso ${index + 1}:</h5>
-                                    <p>${step}</p>
+                                    <h5>Paso $${index + 1}:</h5>
+                                    <p>$${step}</p>
                                 </div>
                             `).join('')}
                         </div>
                         <div class="final-answer">
-                            <p><strong>Respuesta:</strong> ${exercise.solution}</p>
+                            <p><strong>Respuesta:</strong> $${exercise.solution}</p>
                         </div>
                     </div>
                 </div>
@@ -273,102 +273,102 @@ class Modulo1Manager {
     initializeQuizData() {
         this.quizData = [
             {
-                question: '¿Cuál es una antiderivada de $f(x) = 4x^3$?',
+                question: '¿Cuál es una antiderivada de $$f(x) = 4x^3$$?',
                 options: [
-                    { text: '$x^4 + C$', correct: true },
-                    { text: '$4x^4 + C$', correct: false },
-                    { text: '$\\frac{x^4}{4} + C$', correct: false },
-                    { text: '$12x^2 + C$', correct: false }
+                    { text: '$$x^4 + C$$', correct: true },
+                    { text: '$$4x^4 + C$$', correct: false },
+                    { text: '$$\\frac{x^4}{4} + C$$', correct: false },
+                    { text: '$$12x^2 + C$$', correct: false }
                 ],
-                explanation: 'Aplicando la regla de la potencia: $\\int 4x^3 \\, dx = 4 \\cdot \\frac{x^4}{4} + C = x^4 + C$'
+                explanation: 'Aplicando la regla de la potencia: $$\\int 4x^3 \\, dx = 4 \\cdot \\frac{x^4}{4} + C = x^4 + C$$'
             },
             {
-                question: 'Evalúa $\\int (2x^2 - 3x + 1) \\, dx$',
+                question: 'Evalúa $$\\int (2x^2 - 3x + 1) \\, dx$$',
                 options: [
-                    { text: '$\\frac{2x^3}{3} - \\frac{3x^2}{2} + x + C$', correct: true },
-                    { text: '$4x - 3 + C$', correct: false },
-                    { text: '$\\frac{x^3}{3} - \\frac{x^2}{2} + x + C$', correct: false },
-                    { text: '$2x^3 - 3x^2 + x + C$', correct: false }
+                    { text: '$$\\frac{2x^3}{3} - \\frac{3x^2}{2} + x + C$$', correct: true },
+                    { text: '$$4x - 3 + C$$', correct: false },
+                    { text: '$$\\frac{x^3}{3} - \\frac{x^2}{2} + x + C$$', correct: false },
+                    { text: '$$2x^3 - 3x^2 + x + C$$', correct: false }
                 ],
                 explanation: 'Separando términos y aplicando la regla de la potencia a cada uno.'
             },
             {
-                question: '¿Cuál es la integral de $\\int \\frac{1}{x} \\, dx$?',
+                question: '¿Cuál es la integral de $$\\int \\frac{1}{x} \\, dx$$?',
                 options: [
-                    { text: '$\\ln|x| + C$', correct: true },
-                    { text: '$\\frac{1}{x^2} + C$', correct: false },
-                    { text: '$x + C$', correct: false },
-                    { text: '$\\ln x + C$', correct: false }
+                    { text: '$$\\ln|x| + C$$', correct: true },
+                    { text: '$$\\frac{1}{x^2} + C$$', correct: false },
+                    { text: '$$x + C$$', correct: false },
+                    { text: '$$\\ln x + C$$', correct: false }
                 ],
-                explanation: 'La integral de $\\frac{1}{x}$ es $\\ln|x| + C$. Nota el valor absoluto.'
+                explanation: 'La integral de $$\\frac{1}{x}$$ es $$\\ln|x| + C$$. Nota el valor absoluto.'
             },
             {
-                question: 'Evalúa $\\int (\\sin x + \\cos x) \\, dx$',
+                question: 'Evalúa $$\\int (\\sin x + \\cos x) \\, dx$$',
                 options: [
-                    { text: '$-\\cos x + \\sin x + C$', correct: true },
-                    { text: '$\\cos x - \\sin x + C$', correct: false },
-                    { text: '$\\sin x + \\cos x + C$', correct: false },
-                    { text: '$-\\sin x - \\cos x + C$', correct: false }
+                    { text: '$$-\\cos x + \\sin x + C$$', correct: true },
+                    { text: '$$\\cos x - \\sin x + C$$', correct: false },
+                    { text: '$$\\sin x + \\cos x + C$$', correct: false },
+                    { text: '$$-\\sin x - \\cos x + C$$', correct: false }
                 ],
-                explanation: 'Usando las integrales básicas: $\\int \\sin x \\, dx = -\\cos x$ y $\\int \\cos x \\, dx = \\sin x$'
+                explanation: 'Usando las integrales básicas: $$\\int \\sin x \\, dx = -\\cos x$$ y $$\\int \\cos x \\, dx = \\sin x$$'
             },
             {
-                question: '¿Cuál es la familia de antiderivadas de $f(x) = 6x$?',
+                question: '¿Cuál es la familia de antiderivadas de $$f(x) = 6x$$?',
                 options: [
-                    { text: '$3x^2 + C$', correct: true },
-                    { text: '$6x^2 + C$', correct: false },
-                    { text: '$3x + C$', correct: false },
-                    { text: '$6x + C$', correct: false }
+                    { text: '$$3x^2 + C$$', correct: true },
+                    { text: '$$6x^2 + C$$', correct: false },
+                    { text: '$$3x + C$$', correct: false },
+                    { text: '$$6x + C$$', correct: false }
                 ],
-                explanation: 'Aplicando la regla de la potencia: $\\int 6x \\, dx = 6 \\cdot \\frac{x^2}{2} + C = 3x^2 + C$'
+                explanation: 'Aplicando la regla de la potencia: $$\\int 6x \\, dx = 6 \\cdot \\frac{x^2}{2} + C = 3x^2 + C$$'
             },
             {
-                question: 'Evalúa $\\int (x + 2)^2 \\, dx$',
+                question: 'Evalúa $$\\int (x + 2)^2 \\, dx$$',
                 options: [
-                    { text: '$\\frac{x^3}{3} + 2x^2 + 4x + C$', correct: true },
-                    { text: '$x^2 + 4x + 4 + C$', correct: false },
-                    { text: '$\\frac{x^3}{3} + 4x + C$', correct: false },
-                    { text: '$x^3 + 4x^2 + 4x + C$', correct: false }
+                    { text: '$$\\frac{x^3}{3} + 2x^2 + 4x + C$$', correct: true },
+                    { text: '$$x^2 + 4x + 4 + C$$', correct: false },
+                    { text: '$$\\frac{x^3}{3} + 4x + C$$', correct: false },
+                    { text: '$$x^3 + 4x^2 + 4x + C$$', correct: false }
                 ],
-                explanation: 'Primero expandir: $(x + 2)^2 = x^2 + 4x + 4$, luego integrar término por término.'
+                explanation: 'Primero expandir: $$(x + 2)^2 = x^2 + 4x + 4$$, luego integrar término por término.'
             },
             {
-                question: '¿Cuál es la integral de $\\int \\sec^2 x \\, dx$?',
+                question: '¿Cuál es la integral de $$\\int \\sec^2 x \\, dx$$?',
                 options: [
-                    { text: '$\\tan x + C$', correct: true },
-                    { text: '$\\sec x \\tan x + C$', correct: false },
-                    { text: '$\\cot x + C$', correct: false },
-                    { text: '$\\csc^2 x + C$', correct: false }
+                    { text: '$$\\tan x + C$$', correct: true },
+                    { text: '$$\\sec x \\tan x + C$$', correct: false },
+                    { text: '$$\\cot x + C$$', correct: false },
+                    { text: '$$\\csc^2 x + C$$', correct: false }
                 ],
-                explanation: 'Esta es una integral trigonométrica básica: $\\int \\sec^2 x \\, dx = \\tan x + C$'
+                explanation: 'Esta es una integral trigonométrica básica: $$\\int \\sec^2 x \\, dx = \\tan x + C$$'
             },
             {
-                question: 'Evalúa $\\int \\frac{x^2 - 4}{x} \\, dx$',
+                question: 'Evalúa $$\\int \\frac{x^2 - 4}{x} \\, dx$$',
                 options: [
-                    { text: '$\\frac{x^2}{2} - 4\\ln|x| + C$', correct: true },
-                    { text: '$x - \\frac{4}{x} + C$', correct: false },
-                    { text: '$\\frac{x^3}{3} - 4x + C$', correct: false },
-                    { text: '$2x - \\frac{4}{x^2} + C$', correct: false }
+                    { text: '$$\\frac{x^2}{2} - 4\\ln|x| + C$$', correct: true },
+                    { text: '$$x - \\frac{4}{x} + C$$', correct: false },
+                    { text: '$$\\frac{x^3}{3} - 4x + C$$', correct: false },
+                    { text: '$$2x - \\frac{4}{x^2} + C$$', correct: false }
                 ],
-                explanation: 'Dividir término por término: $\\frac{x^2 - 4}{x} = x - \\frac{4}{x}$, luego integrar.'
+                explanation: 'Dividir término por término: $$\\frac{x^2 - 4}{x} = x - \\frac{4}{x}$$, luego integrar.'
             },
             {
-                question: '¿Cuál es una antiderivada de $f(x) = e^x$?',
+                question: '¿Cuál es una antiderivada de $$f(x) = e^x$$?',
                 options: [
-                    { text: '$e^x + C$', correct: true },
-                    { text: '$\\frac{e^x}{x} + C$', correct: false },
-                    { text: '$xe^x + C$', correct: false },
-                    { text: '$\\ln(e^x) + C$', correct: false }
+                    { text: '$$e^x + C$$', correct: true },
+                    { text: '$$\\frac{e^x}{x} + C$$', correct: false },
+                    { text: '$$xe^x + C$$', correct: false },
+                    { text: '$$\\ln(e^x) + C$$', correct: false }
                 ],
                 explanation: 'La función exponencial es su propia derivada, por lo que también es su propia antiderivada.'
             },
             {
-                question: 'Evalúa $\\int (5x^4 - 2x^3 + 3x - 1) \\, dx$',
+                question: 'Evalúa $$\\int (5x^4 - 2x^3 + 3x - 1) \\, dx$$',
                 options: [
-                    { text: '$x^5 - \\frac{x^4}{2} + \\frac{3x^2}{2} - x + C$', correct: true },
-                    { text: '$20x^3 - 6x^2 + 3 + C$', correct: false },
-                    { text: '$\\frac{5x^5}{5} - \\frac{2x^4}{4} + \\frac{3x^2}{2} - x + C$', correct: false },
-                    { text: '$5x^5 - 2x^4 + 3x^2 - x + C$', correct: false }
+                    { text: '$$x^5 - \\frac{x^4}{2} + \\frac{3x^2}{2} - x + C$$', correct: true },
+                    { text: '$$20x^3 - 6x^2 + 3 + C$$', correct: false },
+                    { text: '$$\\frac{5x^5}{5} - \\frac{2x^4}{4} + \\frac{3x^2}{2} - x + C$$', correct: false },
+                    { text: '$$5x^5 - 2x^4 + 3x^2 - x + C$$', correct: false }
                 ],
                 explanation: 'Aplicar la regla de la potencia a cada término y simplificar las fracciones.'
             }
@@ -427,7 +427,7 @@ class Modulo1Manager {
         }
 
         if (progressText) {
-            progressText.textContent = `Pregunta ${this.currentQuizQuestion + 1} de ${this.quizData.length}`;
+            progressText.textContent = `Pregunta $${this.currentQuizQuestion + 1} de $${this.quizData.length}`;
         }
 
         // Actualizar pregunta
@@ -441,10 +441,10 @@ class Modulo1Manager {
                 const letter = String.fromCharCode(65 + index); // A, B, C, D
                 const isSelected = this.quizAnswers[this.currentQuizQuestion] === index;
                 return `
-                    <button class="option-btn ${isSelected ? 'selected' : ''}" 
-                            data-answer="${index}" 
-                            data-correct="${option.correct}">
-                        ${letter}. ${option.text}
+                    <button class="option-btn $${isSelected ? 'selected' : ''}" 
+                            data-answer="$${index}" 
+                            data-correct="$${option.correct}">
+                        $${letter}. $${option.text}
                     </button>
                 `;
             }).join('');
@@ -513,7 +513,7 @@ class Modulo1Manager {
         if (timerElement) {
             const minutes = Math.floor(this.timeRemaining / 60);
             const seconds = this.timeRemaining % 60;
-            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerElement.textContent = `$${minutes.toString().padStart(2, '0')}:$${seconds.toString().padStart(2, '0')}`;
         }
     }
 
@@ -598,11 +598,11 @@ class Modulo1Manager {
             const isCorrect = userAnswer !== null && question.options[userAnswer].correct;
             
             summary += `
-                <div class="question-summary ${isCorrect ? 'correct' : 'incorrect'}">
-                    <div class="question-number">Pregunta ${index + 1}</div>
+                <div class="question-summary $${isCorrect ? 'correct' : 'incorrect'}">
+                    <div class="question-number">Pregunta $${index + 1}</div>
                     <div class="question-result">
-                        <span class="status">${isCorrect ? '✓' : '✗'}</span>
-                        <span class="explanation">${question.explanation}</span>
+                        <span class="status">$${isCorrect ? '✓' : '✗'}</span>
+                        <span class="explanation">$${question.explanation}</span>
                     </div>
                 </div>
             `;
@@ -687,7 +687,7 @@ class Modulo1Manager {
             this.timeSpent = Math.floor((Date.now() - this.startTime) / 1000 / 60); // en minutos
             const timeElement = document.getElementById('time-spent');
             if (timeElement) {
-                timeElement.textContent = `Tiempo: ${this.timeSpent} min`;
+                timeElement.textContent = `Tiempo: $${this.timeSpent} min`;
             }
         }, 60000); // Actualizar cada minuto
     }
@@ -723,7 +723,7 @@ class Modulo1Manager {
     formatTime(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        return `$${minutes}:$${remainingSeconds.toString().padStart(2, '0')}`;
     }
 
     // Limpieza al salir
