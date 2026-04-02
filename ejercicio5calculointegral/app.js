@@ -1,10 +1,10 @@
 /**
-	* JMGV-PTEL Calculation Genius Engine v1.0
+	* JMGV-PTEL Calculation Engine v1.0
 	* data, render, quiz, print logic
 	*/
 
 // --- BASE DE DATOS MATEMÁTICA (ESCALABLE) ---
-// Genius Tip: Usamos MathJax LaTeX para renderizar ecuaciones perfectas
+// Tip: Usamos MathJax LaTeX para renderizar ecuaciones perfectas
 const integralesDb = [
 	{
 		id: 1,
@@ -125,7 +125,7 @@ const integralesDb = [
 		dv: "-bdx",
 		cambio: "-\\frac{1}{b} \\int \\cos(a-bx) (-bdx)",
 		pasos: [
-			"Genius Algebra Tip: 'a' y 'b' son constantes.",
+			"Algebra Tip: 'a' y 'b' son constantes.",
 			"Variable: \\(v = a-bx\\)",
 			"Diferencial: \\(dv = -bdx\\)",
 			"Ajuste: Necesitamos \\(-b\\) adentro, multiplicamos por \\(-\\frac{1}{b}\\) afuera: \\(-\\frac{1}{b} \\int \\cos(a-bx) \\mathbf{-bdx}\\)",
@@ -235,7 +235,7 @@ const integralesDb = [
 		dv: "2dx",
 		cambio: "\\int (\\csc 2x - 1)^2 dx",
 		pasos: [
-			"Algebraic Genius Note: En la imagen hay un typo, dice (csc 2x - 1)^2. Generalmente esto corresponde a expanding the binomial or standard substitution. Looking closely at image, I will assume it is $\\int \\csc^2(2x-1) dx$ for it to be solvable with the *given formulas* context.",
+			"Algebraic Note: En la imagen hay un typo, dice (csc 2x - 1)^2. Generalmente esto corresponde a expanding the binomial or standard substitution. Looking closely at image, I will assume it is $\\int \\csc^2(2x-1) dx$ for it to be solvable with the *given formulas* context.",
 			"Suposición: Interpretaremos como \\(\\int \\csc^2(2x-1) dx\\) basado en la complejidad de la hoja.",
 			"Variable: \\(v = 2x-1\\)",
 			"Diferencial: \\(dv = 2dx\\)",
@@ -250,7 +250,7 @@ const integralesDb = [
 		dv: "dv1=1/2 dx, dv2=dx",
 		cambio: "\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx",
 		pasos: [
-			"Genius Trig Tip: Expande el binomio primero.",
+			"Trig Tip: Expande el binomio primero.",
 			"Expansión Algebraica: \\(\\int (\\sin^2\\frac{x}{2} + 2\\sin\\frac{x}{2}\\cos\\frac{x}{2} + \\cos^2\\frac{x}{2}) dx\\)",
 			"Identidad Pitagórica: \\(\\sin^2\\theta + \\cos^2\\theta = 1\\). En este caso \\(\\sin^2\\frac{x}{2} + \\cos^2\\frac{x}{2} = 1\\).",
 			"Identidad Ángulo Doble: \\(2\\sin\\theta\\cos\\theta = \\sin(2\\theta)\\). En este caso \\(2\\sin\\frac{x}{2}\\cos\\frac{x}{2} = \\sin(x)\\).",
@@ -259,7 +259,7 @@ const integralesDb = [
 			"Resultado: \\(x - \\cos x + C\\)"
 		]
 	},
-	// Genius Mathematical Engine v1.1 - Concatenate to integralesDb
+	// Mathematical Engine v1.1 - Concatenate to integralesDb
 	// Adding Exercises 19 to 40 with Pedagogical Corrections
 
 	{
@@ -433,11 +433,11 @@ const integralesDb = [
 	{
 		id: 31,
 		formula_base: "Algebraica + Fórmula Potencia",
-		v: "Algebraic manipulation",
+		v: "Manipulación Algebraica",
 		dv: "N/A",
-		cambio: "Identidad: $\\sin^2 \\theta = \\frac{1-\\cos(2\\theta)}{2}$",
+		cambio: "Identidad:\\sin^2 \\theta = \\frac{1-\\cos(2\\theta)}{2}",
 		pasos: [
-			"Genius Trig Tip: El exponente 2 en $\\sin^2(3x)$ no permite integración directa.",
+			"Trig Tip: El exponente 2 en $\\sin^2(3x)$ no permite integración directa.",
 			"Usar Identidad de Ángulo Doble: $\\sin^2(v) = \\frac{1-\\cos(2v)}{2}$. Aquí $v=3x$, por lo que $2v=6x$.",
 			"Reescribir Integral: $\\int \\frac{1-\cos(6x)}{2} dx$",
 			"Separar Integrales: $\\frac{1}{2} \\int 1 dx - \\frac{1}{2} \\int \\cos(6x) dx$",
@@ -448,11 +448,11 @@ const integralesDb = [
 	{
 		id: 32,
 		formula_base: "Algebraica + Fórmula Potencia",
-		v: "Algebraic manipulation",
+		v: "Manipulación Algebraica",
 		dv: "N/A",
-		cambio: "Identidad: $\\cos^2 \\theta = \\frac{1+\cos(2\\theta)}{2}$",
+		cambio: "Identidad: \\cos^2 \\theta = \\frac{1+\cos(2\\theta)}{2}",
 		pasos: [
-			"Genius Trig Tip: Usar Ángulo Doble para $\\cos^2(v) = \\frac{1+\cos(2v)}{2}$. Aquí $v=2x$, $2v=4x$.",
+			"Trig Tip: Usar Ángulo Doble para $\\cos^2(v) = \\frac{1+\cos(2v)}{2}$. Aquí $v=2x$, $2v=4x$.",
 			"Reescribir Integral: $\\int \\frac{1+\cos(4x)}{2} dx$",
 			"Separar Integrales: $\\frac{1}{2} \\int 1 dx + \\frac{1}{2} \\int \\cos(4x) dx$",
 			"Integrar: $\\frac{1}{2}x + \\frac{1}{2} \\left( \\frac{1}{4}\\sin 4x \\right) + C$",
@@ -464,9 +464,9 @@ const integralesDb = [
 		formula_base: "3.- \\int \\sec^2 v dv (indirecto)",
 		v: "4x",
 		dv: "4dx",
-		cambio: "Identidad: $\\tan^2 v = \\sec^2 v - 1$",
+		cambio: "Identidad: \\tan^2 v = \\sec^2 v - 1",
 		pasos: [
-			"Genius Note: No hay fórmula directa para $\\int \\tan^2 v$.",
+			"Nota: No hay fórmula directa para $\\int \\tan^2 v$.",
 			"Identidad Pitagórica: $\\tan^2 v = \\sec^2 v - 1$. Aquí $v=4x$.",
 			"Reescribir Integral: $\\int (\\sec^2 4x - 1) dx$",
 			"Separar Integrales: $\\int \\sec^2 4x dx - \\int 1 dx$",
@@ -479,9 +479,9 @@ const integralesDb = [
 		formula_base: "4.- \\int \\csc^2 v dv (indirecto)",
 		v: "2x",
 		dv: "2dx",
-		cambio: "Identidad: $\\cot^2 v = \\csc^2 v - 1$",
+		cambio: "Identidad: \\cot^2 v = \\csc^2 v - 1",
 		pasos: [
-			"Genius Note: No hay fórmula directa para $\\int \\cot^2 v$.",
+			"Nota: No hay fórmula directa para $\\int \\cot^2 v$.",
 			"Identidad Pitagórica: $\\cot^2 v = \\csc^2 v - 1$. Aquí $v=2x$.",
 			"Reescribir Integral: $\\int (\\csc^2 2x - 1) dx$",
 			"Separar Integrales: $\\int \\csc^2 2x dx - \\int 1 dx$",
@@ -496,7 +496,7 @@ const integralesDb = [
 		dv: "a dx",
 		cambio: "\\frac{1}{a} \\int \\sin(ax+b) (a dx)",
 		pasos: [
-			"Genius Note: 'a' y 'b' son constantes.",
+			"Nota: 'a' y 'b' son constantes.",
 			"Variable: \\(v = ax+b\\)",
 			"Diferencial: \\(dv = a dx\\)",
 			"Ajuste: \\(\\frac{1}{a} \\int \\sin(ax+b) (a dx)\\)",
@@ -576,7 +576,7 @@ const integralesDb = [
 	}
 
 
-	// Genius fullstack tip: Concatenate these to existing db:
+	// fullstack tip: Concatenate these to existing db:
 	// integralesDb = integralesDb.concat(integralesEjercicios19Al40);
 ];
 
@@ -614,7 +614,7 @@ const quizData = {
 				{ "t": "Divide por $(3x-1)$ afuera.", "correct": false },
 				{ "t": "No requiere ajuste.", "correct": false }
 			],
-			"note_maestro": "👨‍🏫 Nota de Genius: Esta pregunta prueba la capacidad de factorización y el principio de 'no alterar la ecuación' (multiplicar por 1).",
+			"note_maestro": "👨‍🏫 Nota de  Esta pregunta prueba la capacidad de factorización y el principio de 'no alterar la ecuación' (multiplicar por 1).",
 			"tip_estudiante": "💡 Tip: $v=3x^2-2x$, $dv=2(3x-1)dx$. Ya tienes $(3x-1)dx$, te falta el $2$."
 		},
 		{
@@ -636,7 +636,7 @@ const quizData = {
 				{ "t": "Expandir el binomio al cuadrado y usar identidades.", "correct": true },
 				{ "t": "Integrar término a término.", "correct": false }
 			],
-			"note_maestro": "👨‍🏫 Nota Genius: Este es un ejercicio de madurez. Conecta Álgebra (trinomio cuadrado perfecto) -> Identidades Trigonométricas -> Cálculo Elemental. No enseñes trucos, enseña conexiones.",
+			"note_maestro": "👨‍🏫 Nota  Este es un ejercicio de madurez. Conecta Álgebra (trinomio cuadrado perfecto) -> Identidades Trigonométricas -> Cálculo Elemental. No enseñes trucos, enseña conexiones.",
 			"tip_estudiante": "💡 Tip: $(A+B)^2 = A^2 + 2AB + B^2$. Mira lo que obtienes después de expandir."
 		}
 	]
@@ -675,10 +675,10 @@ function renderSolutions() {
 													<p><strong>Cálculo del Diferencial:</strong> \\(dv = ${ejercicio.dv}\\)</p>
 													<p><strong>Cambio de Variable / Ajuste:</strong> \\(${ejercicio.cambio}\\)</p>
 													${pasosHtml}
-									</div>
-					`;
+													</div>
+													`;
 
-		// Dynamic Exercise text generation (Genius scalability)
+		// Dynamic Exercise text generation (scalability)
 		// We'll update the inner text to LaTeX format based on data. Some exercises need complex parsing,
 		// so I'll just hardcode standard standard transcription of image to LaTeX for performance here.
 		container.appendChild(item);
@@ -703,28 +703,28 @@ function renderSolutions() {
 	document.querySelector('#ex-16 .exercise-text').innerHTML = '16.- \\(\\int e^x \\csc^2(e^x) dx\\)';
 	document.querySelector('#ex-17 .exercise-text').innerHTML = '17.- \\(\\int \\csc^2(2x-1) dx\\)'; // Corregido typo en imagen
 	document.querySelector('#ex-18 .exercise-text').innerHTML = '18.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
-	document.querySelector('#ex-19 .exercise-text').innerHTML = '19.- \\(\\int \\sin 2xdx\\)';
+	document.querySelector('#ex-19 .exercise-text').innerHTML = '19.- \\(\\int \\sin (2x)dx\\)';
 	document.querySelector('#ex-20 .exercise-text').innerHTML = '20.- \\(\\int \\cos (4x)dx\\)';
-	document.querySelector('#ex-21 .exercise-text').innerHTML = '21.- \\(\\int \\sec^2(2x-1)dx\\)';
-	document.querySelector('#ex-22 .exercise-text').innerHTML = '22.- \\(\\int \\csc^2(\\frac{1}{2}x)dx\\)';
-	document.querySelector('#ex-23 .exercise-text').innerHTML = '23.- \\(\\int \\sec(2x+3)\\tan(2x+3)dx\\)';
-	document.querySelector('#ex-24 .exercise-text').innerHTML = '24.- \\(\\int \\csc(1-x)\\cot(1-x)dx\\)';
-	document.querySelector('#ex-25 .exercise-text').innerHTML = '25.- \\(\\int \\cos(a-bx)dx\\)';
-	document.querySelector('#ex-26 .exercise-text').innerHTML = '26.- \\(\\int \\sin \\sqrt{x}\\frac{dx}{\\sqrt{x}}\\)';
-	document.querySelector('#ex-27 .exercise-text').innerHTML = '27.- \\(\\int \\sec \\frac{1}{x}\\tan \\frac{1}{x}\\frac{dx}{x^2}\\)';
-	document.querySelector('#ex-28 .exercise-text').innerHTML = '28.- \\(\\int \\cos \\frac{3}{x}\\frac{dx}{x^2}\\)';
-	document.querySelector('#ex-29 .exercise-text').innerHTML = '29.- \\(\\int \\sin \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-30 .exercise-text').innerHTML = '30.- \\(\\int \\cos \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-31 .exercise-text').innerHTML = '31.- \\(\\int \\sin \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-32 .exercise-text').innerHTML = '32.- \\(\\int \\cos \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-33 .exercise-text').innerHTML = '33.- \\(\\int \\sin \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-34 .exercise-text').innerHTML = '34.- \\(\\int \\cos \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-35 .exercise-text').innerHTML = '35.- \\(\\int \\sin \\frac{x}{2}dx\\)';
-	document.querySelector('#ex-36 .exercise-text').innerHTML = '36.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
-	document.querySelector('#ex-37 .exercise-text').innerHTML = '37.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
-	document.querySelector('#ex-38 .exercise-text').innerHTML = '38.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
-	document.querySelector('#ex-39 .exercise-text').innerHTML = '39.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
-	document.querySelector('#ex-40 .exercise-text').innerHTML = '40.- \\(\\int (\\sin \\frac{x}{2} + \\cos \\frac{x}{2})^2 dx\\)';
+	document.querySelector('#ex-21 .exercise-text').innerHTML = '21.- \\(\\int \\sin( \\frac{x}{2})dx\\)';
+	document.querySelector('#ex-22 .exercise-text').innerHTML = '22.- \\(\\int \\cos( \\frac{x}{3})dx\\)';
+	document.querySelector('#ex-23 .exercise-text').innerHTML = '23.- \\(\\int \\sec^2(2x)dx\\)';
+	document.querySelector('#ex-24 .exercise-text').innerHTML = '24.- \\(\\int \\csc^2(3x)dx\\)';
+	document.querySelector('#ex-25 .exercise-text').innerHTML = '25.- \\(\\int \\sec(2x) \\tan(2x) dx\\)';
+	document.querySelector('#ex-26 .exercise-text').innerHTML = '26.- \\(\\int \\csc(3x) \\cot(3x) dx\\)';
+	document.querySelector('#ex-27 .exercise-text').innerHTML = '27.- \\(\\int \\sec^2(\\frac{x}{3})dx\\)';
+	document.querySelector('#ex-28 .exercise-text').innerHTML = '28.- \\(\\int \\csc^2(\\frac{x}{4})dx\\)';
+	document.querySelector('#ex-29 .exercise-text').innerHTML = '29.- \\(\\int \\sec(\\frac{x}{2}) \\tan(\\frac{x}{2}) dx\\)';
+	document.querySelector('#ex-30 .exercise-text').innerHTML = '30.- \\(\\int \\csc(\\frac{x}{3}) \\cot(\\frac{x}{3}) dx\\)';
+	document.querySelector('#ex-31 .exercise-text').innerHTML = '31.- \\(\\int \\sin^2 (3x)dx\\)';
+	document.querySelector('#ex-32 .exercise-text').innerHTML = '32.- \\(\\int \\cos^2 (2x)dx\\)';
+	document.querySelector('#ex-33 .exercise-text').innerHTML = '33.- \\(\\int \\tan^2 (4x)dx\\)';
+	document.querySelector('#ex-34 .exercise-text').innerHTML = '34.- \\(\\int \\cot^2 (2x)dx\\)';
+	document.querySelector('#ex-35 .exercise-text').innerHTML = '35.- \\(\\int \\sin (ax+b)dx\\)';
+	document.querySelector('#ex-36 .exercise-text').innerHTML = '36.- \\(\\int \\cos (mx)dx\\)';
+	document.querySelector('#ex-37 .exercise-text').innerHTML = '37.- \\(\\int \\sec^2(bx)dx\\)';
+	document.querySelector('#ex-38 .exercise-text').innerHTML = '38.- \\(\\int \\csc^2(cx)dx\\)';
+	document.querySelector('#ex-39 .exercise-text').innerHTML = '39.- \\(\\int \\sec(ax) \\tan(ax) dx\\)';
+	document.querySelector('#ex-40 .exercise-text').innerHTML = '40.- \\(\\int \\csc(mx) \\cot(mx) dx\\)';
 
 }
 
@@ -805,7 +805,7 @@ function submitAnswer() {
 	} else {
 		selectedOption.style.backgroundColor = '#fff5f5';
 		selectedOption.style.borderColor = 'var(--accent-dv)';  // Added quotes around CSS variable
-		// Genius feedback: show correct answer sutilly
+		// feedback: show correct answer sutilly
 		document.querySelectorAll('.btn-option').forEach(o => {
 			if (o.getAttribute('data-correct') === 'true') {
 				o.style.borderColor = 'var(--accent-v)';  // Added quotes around CSS variable
@@ -854,7 +854,7 @@ function teacherLockControl() {
 			btn.innerHTML = "Maestro Activo 🔓";
 			btn.classList.add('unlocked');
 			showTeacherNotes(true);
-			alert("Genius Pedagogical Data Unlocked.");
+			alert("Pedagogical Data Unlocked.");
 		} else if (password === null) {
 			// Cancelado
 		} else {
@@ -877,3 +877,5 @@ function showTeacherNotes(show) {
 
 // Run engine
 init();
+											
+			
